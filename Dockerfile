@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY package.json .npmrc .env* ./
+COPY package.json .env* ./
 RUN npm install
 
 COPY . .
