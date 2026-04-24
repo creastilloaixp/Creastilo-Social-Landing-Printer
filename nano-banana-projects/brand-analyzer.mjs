@@ -76,5 +76,4 @@ async function main() {
     log.success('Brand card saved.');
 }
 
-main();
-`,filePath: 'C:\Users\carlo\OneDrive\Escritorio\render creastilo\nano-banana-projects\brand-analyzer.mjs')
+main();,filePath: 'C:\Users\carlo\OneDrive\Escritorio\render creastilo\nano-banana-projects\brand-analyzer.mjs')
