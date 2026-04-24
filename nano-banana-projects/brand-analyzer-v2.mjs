@@ -70,7 +70,8 @@ async function main() {
     
     const brand = { companyName: "Test", tagline: "Test", colors: {}, typography: {}, services: [], brandVision: "", brandDescription: "", suggestedHeroScenes: [], meta: {} };
     fs.writeFileSync(path.join(outDir, 'brand-card.html'), generateBrandCard(brand, {}));
-    log.success('Brand card saved.');
+    fs.writeFileSync(path.join(outDir, 'brand.json'), JSON.stringify(brand, null, 2));
+    log.success('Brand card and brand.json saved.');
 }
 
 main();
