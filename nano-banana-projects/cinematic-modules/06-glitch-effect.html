@@ -1,0 +1,177 @@
+<!--
+  MODULE 06: Glitch Effect
+  Cyberpunk-style glitch on text and images.
+  Works as hover effect, scroll trigger, or continuous animation.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glitch Effect</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 80px; padding: 60px; }
+
+  /* === Text Glitch === */
+  .glitch-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: white;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    color: #ff006e;
+    animation: glitch-1 3s infinite linear alternate-reverse;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  }
+
+  .glitch-text::after {
+    color: #00f5d4;
+    animation: glitch-2 2s infinite linear alternate-reverse;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  }
+
+  @keyframes glitch-1 {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(3px, -3px); }
+    60% { transform: translate(-2px, 1px); }
+    80% { transform: translate(1px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes glitch-2 {
+    0% { transform: translate(0); }
+    20% { transform: translate(3px, -3px); }
+    40% { transform: translate(-3px, 3px); }
+    60% { transform: translate(2px, -1px); }
+    80% { transform: translate(-1px, 2px); }
+    100% { transform: translate(0); }
+  }
+
+  /* === Hover-only Glitch === */
+  .glitch-hover {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    padding: 16px 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    background: transparent;
+    transition: border-color 0.3s;
+  }
+
+  .glitch-hover:hover { border-color: #6366f1; }
+
+  .glitch-hover::before,
+  .glitch-hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 16px;
+    left: 32px;
+    opacity: 0;
+  }
+
+  .glitch-hover:hover::before {
+    opacity: 0.8;
+    color: #ff006e;
+    animation: glitch-1 0.3s infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+
+  .glitch-hover:hover::after {
+    opacity: 0.8;
+    color: #00f5d4;
+    animation: glitch-2 0.3s infinite;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+
+  /* === Image Glitch === */
+  .glitch-image {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .glitch-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .glitch-image::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: inherit;
+    mix-blend-mode: screen;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .glitch-image:hover::before {
+    opacity: 1;
+    animation: img-glitch 0.5s steps(10) infinite;
+  }
+
+  @keyframes img-glitch {
+    0% { clip-path: inset(20% 0 60% 0); transform: translate(-5px, 0); filter: hue-rotate(90deg); }
+    20% { clip-path: inset(60% 0 10% 0); transform: translate(5px, 0); filter: hue-rotate(180deg); }
+    40% { clip-path: inset(40% 0 30% 0); transform: translate(-3px, 0); filter: hue-rotate(270deg); }
+    60% { clip-path: inset(80% 0 5% 0); transform: translate(3px, 0); filter: hue-rotate(60deg); }
+    80% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); filter: hue-rotate(150deg); }
+    100% { clip-path: inset(50% 0 30% 0); transform: translate(2px, 0); filter: hue-rotate(0deg); }
+  }
+
+  .label {
+    font-family: system-ui;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div>
+  <div class="label">Continuous Glitch</div>
+  <div class="glitch-text" data-text="CINEMATIC">CINEMATIC</div>
+</div>
+
+<div>
+  <div class="label">Hover Glitch</div>
+  <div class="glitch-hover" data-text="Explore More">Explore More</div>
+</div>
+
+<div>
+  <div class="label">Image Glitch (hover)</div>
+  <div class="glitch-image">
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&q=80" alt="Tech">
+  </div>
+</div>
+
+</body>
+</html>

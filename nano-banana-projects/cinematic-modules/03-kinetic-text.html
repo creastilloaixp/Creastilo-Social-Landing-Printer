@@ -1,0 +1,218 @@
+<!--
+  MODULE 03: Kinetic Text Effect
+  Text that animates character by character on scroll.
+  Perfect for hero headlines, brand statements, quotes.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kinetic Text</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    min-height: 300vh;
+  }
+
+  .kinetic-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+  }
+
+  .kinetic-text {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    max-width: 900px;
+    text-align: center;
+  }
+
+  .kinetic-text .char {
+    display: inline-block;
+    opacity: 0.08;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, color 0.4s ease;
+  }
+
+  .kinetic-text .char.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .kinetic-text .char.accent {
+    color: #6366f1;
+  }
+
+  .kinetic-text .word {
+    display: inline-block;
+    margin-right: 0.3em;
+  }
+
+  /* Variant: Horizontal reveal (wipe effect) */
+  .kinetic-wipe {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.8;
+    max-width: 700px;
+    text-align: center;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .kinetic-wipe .word-wrap {
+    display: inline;
+    background-size: 0% 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(transparent, transparent);
+    color: rgba(255,255,255,0.15);
+    transition: color 0.5s ease;
+  }
+
+  .kinetic-wipe .word-wrap.revealed {
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* Variant: Counter/number animation */
+  .kinetic-counter {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    color: #6366f1;
+    font-variant-numeric: tabular-nums;
+  }
+</style>
+</head>
+<body>
+
+<div class="kinetic-section" style="height:50vh"></div>
+
+<div class="kinetic-section" id="heroSection">
+  <div>
+    <div class="kinetic-text" data-kinetic="chars" data-accent-words="premium,cinematic">
+      We craft premium cinematic experiences that captivate your audience
+    </div>
+    <div class="kinetic-wipe" data-kinetic="words">
+      Every frame is designed to evoke emotion. Every scroll reveals a new chapter of your brand story.
+    </div>
+  </div>
+</div>
+
+<div class="kinetic-section">
+  <div style="display:flex;gap:80px;text-align:center">
+    <div>
+      <div class="kinetic-counter" data-count-to="150" data-suffix="+">0</div>
+      <div style="color:rgba(255,255,255,0.5);margin-top:8px;font-family:system-ui">Projects Delivered</div>
+    </div>
+    <div>
+      <div class="kinetic-counter" data-count-to="98" data-suffix="%">0</div>
+      <div style="color:rgba(255,255,255,0.5);margin-top:8px;font-family:system-ui">Client Satisfaction</div>
+    </div>
+    <div>
+      <div class="kinetic-counter" data-count-to="15" data-prefix="$" data-suffix="K">0</div>
+      <div style="color:rgba(255,255,255,0.5);margin-top:8px;font-family:system-ui">Avg. Project Value</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // === Character-by-character reveal ===
+  document.querySelectorAll('[data-kinetic="chars"]').forEach(el => {
+    const text = el.textContent.trim();
+    const accentWords = (el.dataset.accentWords || '').split(',').map(w => w.trim().toLowerCase());
+    el.innerHTML = '';
+
+    text.split(' ').forEach((word, wi) => {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'word';
+
+      word.split('').forEach((char, ci) => {
+        const charSpan = document.createElement('span');
+        charSpan.className = 'char';
+        if (accentWords.includes(word.toLowerCase())) charSpan.classList.add('accent');
+        charSpan.textContent = char;
+        charSpan.style.transitionDelay = `${(wi * word.length + ci) * 30}ms`;
+        wordSpan.appendChild(charSpan);
+      });
+
+      el.appendChild(wordSpan);
+    });
+  });
+
+  // === Word-by-word reveal ===
+  document.querySelectorAll('[data-kinetic="words"]').forEach(el => {
+    const text = el.textContent.trim();
+    el.innerHTML = '';
+
+    text.split(' ').forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'word-wrap';
+      span.textContent = word + ' ';
+      span.style.transitionDelay = `${i * 80}ms`;
+      el.appendChild(span);
+    });
+  });
+
+  // === Counter animation ===
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.countTo) || 0;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // === Intersection Observer for scroll triggers ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+
+      // Chars reveal
+      if (el.dataset.kinetic === 'chars') {
+        el.querySelectorAll('.char').forEach(c => c.classList.add('revealed'));
+      }
+
+      // Words reveal
+      if (el.dataset.kinetic === 'words') {
+        el.querySelectorAll('.word-wrap').forEach(w => w.classList.add('revealed'));
+      }
+
+      // Counter
+      if (el.dataset.countTo) {
+        animateCounter(el);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-kinetic]').forEach(el => observer.observe(el));
+  document.querySelectorAll('[data-count-to]').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>

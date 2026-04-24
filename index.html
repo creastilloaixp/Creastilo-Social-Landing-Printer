@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atia Inmobiliaria | Luxury Real Estate</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1A374D',
+                        secondary: '#B8860B',
+                        accent: '#E7C27B',
+                        bglight: '#F8F8F8',
+                        oled: '#000000',
+                        surface: '#0a0a0a',
+                        textMain: '#F8F8F8',
+                        textLight: '#888888'
+                    },
+                    fontFamily: {
+                        heading: ['"Playfair Display"', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    },
+                    spacing: {
+                        '8px': '8px',
+                        '16px': '16px',
+                        '24px': '24px',
+                        '32px': '32px',
+                        '64px': '64px',
+                        '128px': '128px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: theme('colors.oled');
+            color: theme('colors.textMain');
+            font-family: theme('fontFamily.body');
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hide scrollbar for cinematic feel */
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        /* Cinematic Modules CSS */
+        .reveal-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .kinetic-wrap {
+            display: flex;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .kinetic-text {
+            animation: kineticScroll 30s linear infinite;
+        }
+
+        @keyframes kineticScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .glass-nav {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(to right, #B8860B, #E7C27B, #B8860B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .product-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: theme('colors.secondary');
+            box-shadow: 0 10px 40px -10px rgba(184, 134, 11, 0.2);
+        }
+    </style>
+</head>
+<body class="selection:bg-secondary selection:text-oled">
+
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="font-heading text-3xl font-bold tracking-[0.2em] text-white uppercase flex items-center gap-3">
+                <div class="w-10 h-10 bg-secondary rounded-sm flex items-center justify-center">
+                    <span class="text-oled font-heading text-xl font-bold italic">A</span>
+                </div>
+                Atia
+            </div>
+            <div class="hidden md:flex gap-10 text-xs uppercase tracking-[0.3em] font-bold text-textLight">
+                <a href="#hero-sequence" class="hover:text-secondary transition-colors">Inicio</a>
+                <a href="#destinations" class="hover:text-secondary transition-colors">Destinos</a>
+                <a href="#services" class="hover:text-secondary transition-colors">Servicios</a>
+                <a href="#contact" class="hover:text-secondary transition-colors">Contacto</a>
+            </div>
+            <a href="https://www.instagram.com/atiamx/" target="_blank" class="bg-secondary text-oled px-8 py-3 rounded-sm text-xs font-bold uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_20px_rgba(184,134,11,0.3)]">
+                Instagram
+            </a>
+        </div>
+    </nav>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="py-32 px-6 bg-oled relative overflow-hidden">
+        <!-- Background accents -->
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/5 blur-[100px] rounded-full"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="font-heading text-4xl md:text-6xl text-white mb-6 cinematic-reveal">Presencia en los mejores<br><span class="gold-gradient-text italic font-light">Escenarios.</span></h2>
+                    <p class="text-textLight text-lg cinematic-reveal">Desde las costas del Pacífico hasta el corazón del Caribe, seleccionamos ubicaciones estratégicas para su patrimonio.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Destino 1 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-sm cinematic-reveal shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" alt="Culiacán">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oled via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute inset-0 border border-white/5 group-hover:border-secondary/30 transition-colors duration-700"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-secondary text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block">Corporativo</span>
+                        <h4 class="text-white font-heading text-3xl mb-1 tracking-wider">Culiacán</h4>
+                    </div>
+                </div>
+                <!-- Destino 2 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-sm cinematic-reveal shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" alt="Mazatlán">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oled via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute inset-0 border border-white/5 group-hover:border-secondary/30 transition-colors duration-700"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-secondary text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block">Inversión Costera</span>
+                        <h4 class="text-white font-heading text-3xl mb-1 tracking-wider">Mazatlán</h4>
+                    </div>
+                </div>
+                <!-- Destino 3 -->
+                <div class="group relative aspect-[3/4] overflow-hidden rounded-sm cinematic-reveal shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1510097467424-192d713fd8b2?q=80&w=800&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" alt="Riviera Maya">
+                    <div class="absolute inset-0 bg-gradient-to-t from-oled via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute inset-0 border border-white/5 group-hover:border-secondary/30 transition-colors duration-700"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-secondary text-[10px] uppercase tracking-[0.4em] font-bold mb-2 block">Exclusividad Global</span>
+                        <h4 class="text-white font-heading text-3xl mb-1 tracking-wider">Riviera Maya</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Video Player Hero -->
+    <section id="hero-sequence" class="relative w-full h-[400vh]">
+        <div class="sticky top-0 w-full h-screen overflow-hidden bg-oled">
+            <!-- Canvas for Frame Sequence -->
+            <canvas id="hero-canvas" class="absolute top-0 left-0 w-full h-full object-cover opacity-60 mix-blend-screen"></canvas>
+            
+            <!-- Vignette/Gradient overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-oled"></div>
+
+            <!-- Cinematic Reveal Text overlay -->
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-4 z-10">
+                <div class="mb-4 flex items-center gap-3 cinematic-reveal opacity-0">
+                    <span class="w-12 h-px bg-secondary"></span>
+                    <span class="text-secondary uppercase tracking-[0.3em] text-xs font-bold">12 Años de Trayectoria</span>
+                    <span class="w-12 h-px bg-secondary"></span>
+                </div>
+                <h1 class="font-heading text-6xl md:text-8xl lg:text-9xl text-white mb-6 leading-tight tracking-tighter max-w-6xl mx-auto cinematic-title opacity-0">
+                    Ventanas al<br>
+                    <span class="italic font-light gold-gradient-text">Futuro.</span>
+                </h1>
+                <p class="font-body text-lg md:text-2xl text-textLight max-w-3xl cinematic-subtitle opacity-0 tracking-wide font-light">
+                    Exclusividad y Seguridad Inmobiliaria en los Destinos más Deseados de México.
+                </p>
+                
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+                    <span class="text-xs uppercase tracking-widest font-bold">Explorar</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction / Brand Promise -->
+    <section id="expertise" class="relative py-32 px-6 bg-oled z-10">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-heading text-3xl md:text-5xl text-white mb-12 leading-snug cinematic-reveal">
+                12 años guiando compras y ventas seguras.
+            </h2>
+            <div class="w-px h-24 bg-gradient-to-b from-secondary to-transparent mx-auto mb-12 cinematic-reveal"></div>
+            <p class="font-body text-xl md:text-2xl text-textLight leading-relaxed font-light cinematic-reveal">
+                Atia Inmobiliaria is a distinguished real estate firm specializing in guiding clients through secure property transactions. With a decade of trusted experience, we transform aspirations into secure investments. We offer comprehensive services across prime locations, dedicated to providing expert guidance for buying and selling properties.
+            </p>
+        </div>
+    </section>
+
+    <!-- Kinetic Text Divider -->
+    <section id="destinations" class="py-12 bg-surface border-y border-white/5 overflow-hidden">
+        <div class="kinetic-wrap font-heading text-5xl md:text-8xl text-white/10 uppercase italic tracking-tighter">
+            <div class="kinetic-text">
+                CULIACÁN &mdash; MAZATLÁN &mdash; TIJUANA &mdash; PLAYA DEL CARMEN &mdash; TULUM &mdash; CULIACÁN &mdash; MAZATLÁN &mdash; TIJUANA &mdash; PLAYA DEL CARMEN &mdash; TULUM &mdash;&nbsp;
+            </div>
+            <div class="kinetic-text">
+                CULIACÁN &mdash; MAZATLÁN &mdash; TIJUANA &mdash; PLAYA DEL CARMEN &mdash; TULUM &mdash; CULIACÁN &mdash; MAZATLÁN &mdash; TIJUANA &mdash; PLAYA DEL CARMEN &mdash; TULUM &mdash;&nbsp;
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Products / Services Grid -->
+    <section id="services" class="py-32 px-6 bg-oled relative">
+        <!-- Ambient light -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-20 md:flex justify-between items-end">
+                <div>
+                    <h3 class="font-heading text-4xl md:text-6xl text-white mb-4 cinematic-reveal">Nuestros Servicios</h3>
+                    <p class="text-textLight text-lg max-w-md cinematic-reveal">Soluciones inmobiliarias integrales diseñadas para inversores exigentes y familias exclusivas.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Product 1 -->
+                <div class="product-card group relative bg-surface border border-white/5 p-10 md:p-14 rounded-sm overflow-hidden cinematic-reveal">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-20 transition-all duration-700 scale-110 group-hover:scale-100"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-secondary font-mono text-sm mb-4 block tracking-[0.2em]">01</span>
+                            <h4 class="font-heading text-3xl text-white mb-4 group-hover:text-secondary transition-colors">Venta de Propiedades</h4>
+                            <p class="text-textLight font-light leading-relaxed group-hover:text-white transition-colors">Negociación experta y análisis de mercado para asegurar el valor premium de sus activos de lujo.</p>
+                        </div>
+                        <div class="mt-12 w-12 h-px bg-secondary/50 group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card group relative bg-surface border border-white/5 p-10 md:p-14 rounded-sm overflow-hidden cinematic-reveal">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-20 transition-all duration-700 scale-110 group-hover:scale-100"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-secondary font-mono text-sm mb-4 block tracking-[0.2em]">02</span>
+                            <h4 class="font-heading text-3xl text-white mb-4 group-hover:text-secondary transition-colors">Preventas Exclusivas</h4>
+                            <p class="text-textLight font-light leading-relaxed group-hover:text-white transition-colors">Acceso prioritario a desarrollos de lujo en Playa del Carmen, Tulum y las zonas de mayor plusvalía.</p>
+                        </div>
+                        <div class="mt-12 w-12 h-px bg-secondary/50 group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card group relative bg-surface border border-white/5 p-10 md:p-14 rounded-sm overflow-hidden cinematic-reveal">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-20 transition-all duration-700 scale-110 group-hover:scale-100"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-secondary font-mono text-sm mb-4 block tracking-[0.2em]">03</span>
+                            <h4 class="font-heading text-3xl text-white mb-4 group-hover:text-secondary transition-colors">Rentas Premium</h4>
+                            <p class="text-textLight font-light leading-relaxed group-hover:text-white transition-colors">Selección curada de residencias vacacionales y de largo plazo para experiencias de vida sofisticadas.</p>
+                        </div>
+                        <div class="mt-12 w-12 h-px bg-secondary/50 group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card group relative bg-surface border border-white/5 p-10 md:p-14 rounded-sm overflow-hidden cinematic-reveal">
+                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-0 group-hover:opacity-20 transition-all duration-700 scale-110 group-hover:scale-100"></div>
+                    <div class="relative z-10 h-full flex flex-col justify-between">
+                        <div>
+                            <span class="text-secondary font-mono text-sm mb-4 block tracking-[0.2em]">04</span>
+                            <h4 class="font-heading text-3xl text-white mb-4 group-hover:text-secondary transition-colors">Administración</h4>
+                            <p class="text-textLight font-light leading-relaxed group-hover:text-white transition-colors">Gestión integral de propiedades, brindando paz mental y protegiendo la integridad de su inversión.</p>
+                        </div>
+                        <div class="mt-12 w-12 h-px bg-secondary/50 group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Vibe image placeholder -->
+    <section class="h-screen w-full relative overflow-hidden flex items-center justify-center">
+        <!-- Simulated high-quality image background via CSS gradient/color since we can't load external arbitrary images perfectly matching the cinematic prompt without specific URLs, but we create the vibe -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center bg-no-repeat opacity-40 grayscale"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-oled via-oled/50 to-transparent"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto cinematic-reveal">
+            <h2 class="font-heading text-4xl md:text-7xl text-white mb-6">Aesthetic. Security.<br>Exclusive Lifestyle.</h2>
+            <p class="text-textLight text-xl">Join 8,881+ followers discovering premium investments.</p>
+            <a href="https://www.instagram.com/atiamx/" target="_blank" class="inline-block mt-10 pb-2 border-b border-secondary text-white hover:text-secondary transition-colors uppercase tracking-widest text-sm">
+                Explore our Portfolio
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-surface pt-32 pb-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-24">
+                <div class="col-span-1 md:col-span-2">
+                    <h2 class="font-heading text-5xl md:text-7xl text-white mb-8">Let's craft your<br>legacy.</h2>
+                    <p class="text-textLight max-w-md text-lg">Contact us via Instagram Direct Message or schedule a private consultation to discuss your vision.</p>
+                </div>
+                
+                <div class="flex flex-col gap-8">
+                    <div>
+                        <h5 class="uppercase text-xs tracking-widest text-textLight mb-2">Headquarters</h5>
+                        <p class="text-white font-light">General Rafael Buelna 1142,<br>Culiacán, Sinaloa 80060<br>Mexico</p>
+                    </div>
+                    <div>
+                        <h5 class="uppercase text-xs tracking-widest text-textLight mb-2">Social</h5>
+                        <a href="https://www.instagram.com/atiamx/" target="_blank" class="text-white font-light hover:text-secondary transition-colors">Instagram @atiamx</a>
+                    </div>
+                </div>
+            </div>
+            
+    <!-- Trayectoria Section -->
+    <section id="expertise" class="py-32 px-6 bg-oled border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-24">
+                <div class="cinematic-reveal">
+                    <span class="text-secondary font-heading text-6xl block mb-2">12</span>
+                    <span class="text-white text-xs uppercase tracking-[0.3em] font-bold">Años de Excelencia</span>
+                    <p class="text-textLight mt-4 font-light">Una historia de confianza y seguridad en el mercado inmobiliario mexicano.</p>
+                </div>
+                <div class="cinematic-reveal">
+                    <span class="text-secondary font-heading text-6xl block mb-2">500+</span>
+                    <span class="text-white text-xs uppercase tracking-[0.3em] font-bold">Clientes Satisfechos</span>
+                    <p class="text-textLight mt-4 font-light">Asesorando a inversores locales e internacionales en sus proyectos de vida.</p>
+                </div>
+                <div class="cinematic-reveal">
+                    <span class="text-secondary font-heading text-6xl block mb-2">350m+</span>
+                    <span class="text-white text-xs uppercase tracking-[0.3em] font-bold">Ventas Cerradas</span>
+                    <p class="text-textLight mt-4 font-light">Expertos en maximizar el valor de cada transacción inmobiliaria.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 bg-surface relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <h2 class="font-heading text-4xl md:text-6xl text-white mb-8 cinematic-reveal">¿Listo para su próxima<br><span class="gold-gradient-text italic font-light">Inversión?</span></h2>
+            <p class="text-textLight text-lg mb-12 cinematic-reveal">Permítanos guiarle en el camino hacia su propiedad ideal con la seguridad que nos caracteriza.</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center cinematic-reveal">
+                <a href="https://wa.me/5216671001000" target="_blank" class="bg-secondary text-oled px-12 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_30px_rgba(184,134,11,0.2)]">
+                    Contactar vía WhatsApp
+                </a>
+                <a href="mailto:ventas@atia.mx" class="bg-white/5 text-white px-12 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-all border border-white/10">
+                    Enviar un Correo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-oled py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-20">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-secondary rounded-sm flex items-center justify-center">
+                        <span class="text-oled font-heading text-3xl font-bold italic">A</span>
+                    </div>
+                    <span class="font-heading text-3xl text-white tracking-[0.2em] uppercase">Atia</span>
+                </div>
+                <div class="flex flex-wrap gap-10 text-[10px] uppercase tracking-[0.4em] font-bold text-textLight">
+                    <a href="#destinations" class="hover:text-white transition-colors">Destinos</a>
+                    <a href="#services" class="hover:text-white transition-colors">Servicios</a>
+                    <a href="https://www.instagram.com/atiamx/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.facebook.com/AtiaInmobiliaria" target="_blank" class="hover:text-white transition-colors">Facebook</a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-[10px] text-textLight uppercase tracking-[0.3em] font-bold">
+                <p>&copy; 2026 Atia Inmobiliaria. Ventanas al Futuro.</p>
+                <div class="flex gap-10 mt-6 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">Aviso de Privacidad</a>
+                    <a href="#" class="hover:text-white transition-colors">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // GSAP Registration
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Scroll Video Player Logic
+        const canvas = document.getElementById("hero-canvas");
+        const context = canvas.getContext("2d");
+        
+        // Handle resize
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            render();
+        }
+        window.addEventListener('resize', resizeCanvas);
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const frameCount = 60;
+        // Generate path: frames/frame-0000.jpg
+        const currentFrame = index => `frames/creastilo_${index + 1}.jpg`;
+
+        const images = [];
+        const heroSeq = { frame: 0 };
+        let imagesLoaded = 0;
+
+        // Preload images
+        for (let i = 0; i < frameCount; i++) {
+            const img = new Image();
+            img.src = currentFrame(i);
+            
+            // Fallback visualization if local frames aren't present (for preview aesthetics)
+            img.onerror = function() {
+                // Draw a procedural gradient or fallback color to simulate video movement if files are missing
+                this.isFallback = true;
+                imagesLoaded++;
+                if(imagesLoaded === frameCount) initScrollAnim();
+            };
+            
+            img.onload = function() {
+                imagesLoaded++;
+                if(imagesLoaded === frameCount) initScrollAnim();
+            };
+            images.push(img);
+        }
+
+        // Draw function covering the canvas
+        function render() {
+            if(!images[heroSeq.frame]) return;
+            const img = images[heroSeq.frame];
+            
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (img.isFallback) {
+                // Procedural fallback if frames folder is missing
+                const gradient = context.createLinearGradient(0, 0, canvas.width, canvas.height);
+                const progress = heroSeq.frame / frameCount;
+                gradient.addColorStop(0, '#1A374D');
+                gradient.addColorStop(0.5, `rgba(184, 134, 11, ${progress * 0.3})`);
+                gradient.addColorStop(1, '#000000');
+                context.fillStyle = gradient;
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Add some grid lines for structural feel
+                context.strokeStyle = 'rgba(255,255,255,0.03)';
+                context.lineWidth = 1;
+                for(let i=0; i<canvas.width; i+=40) { context.beginPath(); context.moveTo(i,0); context.lineTo(i,canvas.height); context.stroke(); }
+            } else {
+                // Standard image cover logic
+                const scale = Math.max(canvas.width / img.width, canvas.height / img.height);
+                const x = (canvas.width / 2) - (img.width / 2) * scale;
+                const y = (canvas.height / 2) - (img.height / 2) * scale;
+                context.drawImage(img, x, y, img.width * scale, img.height * scale);
+            }
+        }
+
+        function initScrollAnim() {
+            render(); // Initial render
+            
+            // Image sequence animation
+            gsap.to(heroSeq, {
+                frame: frameCount - 1,
+                snap: "frame",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero-sequence",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 0.5
+                },
+                onUpdate: render
+            });
+
+            // Initial text reveal on load
+            gsap.to('.cinematic-title', { opacity: 1, y: 0, duration: 2, ease: "power4.out", delay: 0.5 });
+            gsap.to('.cinematic-subtitle', { opacity: 1, y: 0, duration: 2, ease: "power4.out", delay: 0.8 });
+        }
+
+        // Parallax out the hero text
+        gsap.to('.cinematic-title, .cinematic-subtitle', {
+            y: -150,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+                trigger: "#hero-sequence",
+                start: "top top",
+                end: "20% top",
+                scrub: true
+            }
+        });
+
+        // 2. Cinematic Modules (Reveal Text)
+        gsap.utils.toArray('.cinematic-reveal').forEach(element => {
+            gsap.fromTo(element, 
+                { 
+                    y: 60, 
+                    opacity: 0,
+                    filter: "blur(10px)"
+                },
+                {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    },
+                    y: 0,
+                    opacity: 1,
+                    filter: "blur(0px)",
+                    duration: 1.5,
+                    ease: "power3.out"
+                }
+            );
+        });
+
+        // Setup initial state for hero text
+        gsap.set('.cinematic-title', { y: 30 });
+        gsap.set('.cinematic-subtitle', { y: 20 });
+        
+    </script>
+</body>
+</html>

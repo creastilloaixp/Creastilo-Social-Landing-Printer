@@ -1,0 +1,46 @@
+{
+  "name": "Denisse Aniram",
+  "industry": "Alta Costura & Diseño Exclusivo",
+  "tagline": "Cuidamos cada detalle para que luzcas espectacular.",
+  "colors": {
+    "primary": "#c5a059",
+    "secondary": "#8e7b54",
+    "accent": "#f9f9f9",
+    "background": "#0a0a0a",
+    "text": "#ffffff"
+  },
+  "typography": {
+    "heading": "Playfair Display",
+    "body": "Montserrat",
+    "style": "Classic Luxury"
+  },
+  "hero": {
+    "headline": "Tu Sueño, Nuestro Detalle.",
+    "subheadline": "Diseños exclusivos para novias y quinceañeras que buscan la perfección en cada costura.",
+    "cta": "Agenda tu Cita"
+  },
+  "scenes": [
+    {
+      "id": 0,
+      "title": "The Masterpiece",
+      "prompt": "Cinematic close-up of a luxury wedding dress on a mannequin, dramatic side lighting, dark moody background, silk and lace textures, 8k resolution, elegant atmosphere, golden rim light.",
+      "animation": "Slow cinematic zoom into the lace details, subtle light shifts across the fabric."
+    },
+    {
+      "id": 1,
+      "title": "The Details",
+      "prompt": "Macro shot of silver crystals being sewn onto white silk fabric, hands of a seamstress visible, soft focus background, warm workshop lighting, high fashion photography style.",
+      "animation": "Camera pans slowly across the crystals, following the needle movement, sparkling reflections."
+    },
+    {
+      "id": 2,
+      "title": "The Celebration",
+      "prompt": "Elegant silhouette of a girl in a large purple quinceañera dress, grand ballroom with bokeh lights in the background, cinematic wide shot, low angle, royal atmosphere.",
+      "animation": "Subtle camera pull back, revealing the scale of the dress and the ballroom lights shimmering."
+    }
+  ],
+  "contact": {
+    "instagram": "@denisseachoy",
+    "location": "Culiacán, Sinaloa"
+  }
+}

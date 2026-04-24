@@ -1,0 +1,1653 @@
+WEBVTT
+Kind: captions
+Language: en
+ 
+Hello, hope you are doing well. So, in
+Hello, hope you are doing well. So, in
+ 
+Hello, hope you are doing well. So, in
+this video, I want to talk a bit about
+this video, I want to talk a bit about
+ 
+this video, I want to talk a bit about
+something I built over the weekend. This
+something I built over the weekend. This
+ 
+something I built over the weekend. This
+is kind of the browser tool for AI
+is kind of the browser tool for AI
+ 
+is kind of the browser tool for AI
+agents.
+agents.
+ 
+agents.
+And yeah, I think it's just really good
+And yeah, I think it's just really good
+ 
+And yeah, I think it's just really good
+and I'm going to make it open source.
+and I'm going to make it open source.
+ 
+and I'm going to make it open source.
+So, you can just install it like NPM
+So, you can just install it like NPM
+ 
+So, you can just install it like NPM
+install G surf agent. I call it that.
+install G surf agent. I call it that.
+ 
+install G surf agent. I call it that.
+So, basically, today I just want to show
+So, basically, today I just want to show
+ 
+So, basically, today I just want to show
+you what this can do because I was
+you what this can do because I was
+ 
+you what this can do because I was
+really surprised how well it works. So,
+really surprised how well it works. So,
+ 
+really surprised how well it works. So,
+let's say we just
+let's say we just
+ 
+let's say we just
+open up Cloud Code here for example. We
+open up Cloud Code here for example. We
+ 
+open up Cloud Code here for example. We
+go to I logged into my Discord. And this
+go to I logged into my Discord. And this
+ 
+go to I logged into my Discord. And this
+is the advantage of this, we don't
+is the advantage of this, we don't
+ 
+is the advantage of this, we don't
+really
+really
+ 
+really
+need any APIs, right? So, I'm logged
+need any APIs, right? So, I'm logged
+ 
+need any APIs, right? So, I'm logged
+into my Discord. I can just say navigate
+into my Discord. I can just say navigate
+ 
+into my Discord. I can just say navigate
+to the Bossy server, read what's
+to the Bossy server, read what's
+ 
+to the Bossy server, read what's
+happening in general. So, now we should
+happening in general. So, now we should
+ 
+happening in general. So, now we should
+have all the tools after we did the NPM
+have all the tools after we did the NPM
+ 
+have all the tools after we did the NPM
+install surf agent. And I did some
+install surf agent. And I did some
+ 
+install surf agent. And I did some
+custom
+custom
+ 
+custom
+addition things to this package here.
+addition things to this package here.
+ 
+addition things to this package here.
+So, we can actually navigate Discord
+So, we can actually navigate Discord
+ 
+So, we can actually navigate Discord
+with this now. So, we should be able
+with this now. So, we should be able
+ 
+with this now. So, we should be able
+now, you can see we are navigating in
+now, you can see we are navigating in
+ 
+now, you can see we are navigating in
+the background here into the server,
+the background here into the server,
+ 
+the background here into the server,
+right? I guess we can just go here. We
+right? I guess we can just go here. We
+ 
+right? I guess we can just go here. We
+can check the general chat like we said.
+can check the general chat like we said.
+ 
+can check the general chat like we said.
+And we should be able to get all the
+And we should be able to get all the
+ 
+And we should be able to get all the
+context from the Discord, right? You can
+context from the Discord, right? You can
+ 
+context from the Discord, right? You can
+see we are looking up the channels. Now,
+see we are looking up the channels. Now,
+ 
+see we are looking up the channels. Now,
+we're going to general, right? General
+we're going to general, right? General
+ 
+we're going to general, right? General
+chat. And now we can grab all the
+chat. And now we can grab all the
+ 
+chat. And now we can grab all the
+context from this server and use it for
+context from this server and use it for
+ 
+context from this server and use it for
+whatever you want. So, it's super easy
+whatever you want. So, it's super easy
+ 
+whatever you want. So, it's super easy
+to use. You can see here now, we are
+to use. You can see here now, we are
+ 
+to use. You can see here now, we are
+kind of doing a recon. You can see in
+kind of doing a recon. You can see in
+ 
+kind of doing a recon. You can see in
+the background, we are scanning all the
+the background, we are scanning all the
+ 
+the background, we are scanning all the
+chats here like the last 200 messages.
+chats here like the last 200 messages.
+ 
+chats here like the last 200 messages.
+And now we can use this as context. So,
+And now we can use this as context. So,
+ 
+And now we can use this as context. So,
+this could be on your own server if you
+this could be on your own server if you
+ 
+this could be on your own server if you
+want to catch up or something. And you
+want to catch up or something. And you
+ 
+want to catch up or something. And you
+can see here's what's going on in the
+can see here's what's going on in the
+ 
+can see here's what's going on in the
+general chat. You can see Discord worms,
+general chat. You can see Discord worms,
+ 
+general chat. You can see Discord worms,
+scam discussion, AI music generation.
+scam discussion, AI music generation.
+ 
+scam discussion, AI music generation.
+Yeah, you get the point. So, this is
+Yeah, you get the point. So, this is
+ 
+Yeah, you get the point. So, this is
+what I've been building and I'm going to
+what I've been building and I'm going to
+ 
+what I've been building and I'm going to
+show you a few things we can use this
+show you a few things we can use this
+ 
+show you a few things we can use this
+for today. And you can kind of adapt it
+for today. And you can kind of adapt it
+ 
+for today. And you can kind of adapt it
+to whatever you want to. And like I
+to whatever you want to. And like I
+ 
+to whatever you want to. And like I
+said, this is open source now. So, you
+said, this is open source now. So, you
+ 
+said, this is open source now. So, you
+can just use it for free. So, let me
+can just use it for free. So, let me
+ 
+can just use it for free. So, let me
+show you a few things we can do with
+show you a few things we can do with
+ 
+show you a few things we can do with
+this. But before we do that, I want to
+this. But before we do that, I want to
+ 
+this. But before we do that, I want to
+tell you about today's sponsor, Freebuf.
+tell you about today's sponsor, Freebuf.
+ 
+tell you about today's sponsor, Freebuf.
+So, a quick word from today's sponsor
+So, a quick word from today's sponsor
+ 
+So, a quick word from today's sponsor
+and that is going to be Freebuf. So,
+and that is going to be Freebuf. So,
+ 
+and that is going to be Freebuf. So,
+coding agents these days are 20 100 $200
+coding agents these days are 20 100 $200
+ 
+coding agents these days are 20 100 $200
+a month depending on your usage. But
+a month depending on your usage. But
+ 
+a month depending on your usage. But
+Freebuf is just free. So, this is funded
+Freebuf is just free. So, this is funded
+ 
+Freebuf is just free. So, this is funded
+by text ads, no subscriptions, and they
+by text ads, no subscriptions, and they
+ 
+by text ads, no subscriptions, and they
+don't even trade on your code. So, I
+don't even trade on your code. So, I
+ 
+don't even trade on your code. So, I
+want to show you how to install this
+want to show you how to install this
+ 
+want to show you how to install this
+now. It's super easy. So, all you have
+now. It's super easy. So, all you have
+ 
+now. It's super easy. So, all you have
+to do, go to freebuf.com, copy this, NPM
+to do, go to freebuf.com, copy this, NPM
+ 
+to do, go to freebuf.com, copy this, NPM
+G is install Freebuf. Just go to your
+G is install Freebuf. Just go to your
+ 
+G is install Freebuf. Just go to your
+terminal and just run this, right?
+terminal and just run this, right?
+ 
+terminal and just run this, right?
+Should be super quick. Perfect, we are
+Should be super quick. Perfect, we are
+ 
+Should be super quick. Perfect, we are
+in. So, I can just say, "Hello." And one
+in. So, I can just say, "Hello." And one
+ 
+in. So, I can just say, "Hello." And one
+thing they have, you can see here if you
+thing they have, you can see here if you
+ 
+thing they have, you can see here if you
+zoom in a bit, you can see they have
+zoom in a bit, you can see they have
+ 
+zoom in a bit, you can see they have
+something called suggested follow-up.
+something called suggested follow-up.
+ 
+something called suggested follow-up.
+So, we can do explore projects, new
+So, we can do explore projects, new
+ 
+So, we can do explore projects, new
+feature, or code review. This is pretty
+feature, or code review. This is pretty
+ 
+feature, or code review. This is pretty
+cool. I kind of like this. But what I
+cool. I kind of like this. But what I
+ 
+cool. I kind of like this. But what I
+want to do is connect this to my ChatGPT
+want to do is connect this to my ChatGPT
+ 
+want to do is connect this to my ChatGPT
+subscription. So, if I do {slash} and I
+subscription. So, if I do {slash} and I
+ 
+subscription. So, if I do {slash} and I
+do connect, you can see connect to your
+do connect, you can see connect to your
+ 
+do connect, you can see connect to your
+ChatGPT account. And you can see I can
+ChatGPT account. And you can see I can
+ 
+ChatGPT account. And you can see I can
+confirm this. Yeah, continue. Connected,
+confirm this. Yeah, continue. Connected,
+ 
+confirm this. Yeah, continue. Connected,
+perfect. If I go back here now, ChatGPT
+perfect. If I go back here now, ChatGPT
+ 
+perfect. If I go back here now, ChatGPT
+connected. And now you can see I can do
+connected. And now you can see I can do
+ 
+connected. And now you can see I can do
+plan, create a plan with GPT 5.4. So,
+plan, create a plan with GPT 5.4. So,
+ 
+plan, create a plan with GPT 5.4. So,
+you can see I just launched create a
+you can see I just launched create a
+ 
+you can see I just launched create a
+plan to use FFmpeg to remove the silence
+plan to use FFmpeg to remove the silence
+ 
+plan to use FFmpeg to remove the silence
+part of an MP4 file. Okay, so you can
+part of an MP4 file. Okay, so you can
+ 
+part of an MP4 file. Okay, so you can
+see we got a plan from Freebuf. Now, I'm
+see we got a plan from Freebuf. Now, I'm
+ 
+see we got a plan from Freebuf. Now, I'm
+just going to say, "Yeah, I want to
+just going to say, "Yeah, I want to
+ 
+just going to say, "Yeah, I want to
+implement the plan." And let's see if
+implement the plan." And let's see if
+ 
+implement the plan." And let's see if
+this works. Okay, so that was done,
+this works. Okay, so that was done,
+ 
+this works. Okay, so that was done,
+perfect. So, now let's test it out now.
+perfect. So, now let's test it out now.
+ 
+perfect. So, now let's test it out now.
+So, I have this video here. It's
+So, I have this video here. It's
+ 
+So, I have this video here. It's
+how long is it? 5 minutes long. So,
+how long is it? 5 minutes long. So,
+ 
+how long is it? 5 minutes long. So,
+let's just run this now. So, we're going
+let's just run this now. So, we're going
+ 
+let's just run this now. So, we're going
+to do the Python remove silence. We're
+to do the Python remove silence. We're
+ 
+to do the Python remove silence. We're
+going to path.
+going to path.
+ 
+going to path.
+Let's see how this goes now. So, we're
+Let's see how this goes now. So, we're
+ 
+Let's see how this goes now. So, we're
+going to speed up FFmpeg, cutting 45
+going to speed up FFmpeg, cutting 45
+ 
+going to speed up FFmpeg, cutting 45
+segments. Okay, perfect. No silence. So,
+segments. Okay, perfect. No silence. So,
+ 
+segments. Okay, perfect. No silence. So,
+we went from 5 minutes to 2:20. Let's
+we went from 5 minutes to 2:20. Let's
+ 
+we went from 5 minutes to 2:20. Let's
+have a quick listen. So, all you have to
+have a quick listen. So, all you have to
+ 
+have a quick listen. So, all you have to
+do, go to freebuf.com. Yeah, that works.
+do, go to freebuf.com. Yeah, that works.
+ 
+do, go to freebuf.com. Yeah, that works.
+So, that was super easy, right? So, now
+So, that was super easy, right? So, now
+ 
+So, that was super easy, right? So, now
+we created this tool. Perfect. So, yeah,
+we created this tool. Perfect. So, yeah,
+ 
+we created this tool. Perfect. So, yeah,
+I would just go to freebuf.com. Go check
+I would just go to freebuf.com. Go check
+ 
+I would just go to freebuf.com. Go check
+it out. I'm going to leave a link in the
+it out. I'm going to leave a link in the
+ 
+it out. I'm going to leave a link in the
+description so you can try this out. And
+description so you can try this out. And
+ 
+description so you can try this out. And
+yeah, a big thanks to Freebuf for
+yeah, a big thanks to Freebuf for
+ 
+yeah, a big thanks to Freebuf for
+sponsoring this segment of the video.
+sponsoring this segment of the video.
+ 
+sponsoring this segment of the video.
+Now, let's go back to the project. Okay,
+Now, let's go back to the project. Okay,
+ 
+Now, let's go back to the project. Okay,
+like I said, you can see I have done
+like I said, you can see I have done
+ 
+like I said, you can see I have done
+this as an NPM package now. You can see
+this as an NPM package now. You can see
+ 
+this as an NPM package now. You can see
+we only have to do like NPM surf agent
+we only have to do like NPM surf agent
+ 
+we only have to do like NPM surf agent
+or something like that. So, let me just
+or something like that. So, let me just
+ 
+or something like that. So, let me just
+grab this here now. And let's just start
+grab this here now. And let's just start
+ 
+grab this here now. And let's just start
+a new. So, we have like a new terminal
+a new. So, we have like a new terminal
+ 
+a new. So, we have like a new terminal
+here on Cloud Code. And we have like a
+here on Cloud Code. And we have like a
+ 
+here on Cloud Code. And we have like a
+fresh
+fresh
+ 
+fresh
+cursor empty
+cursor empty
+ 
+cursor empty
+repo here. So, let's just
+repo here. So, let's just
+ 
+repo here. So, let's just
+start with and let's just do the NPM
+start with and let's just do the NPM
+ 
+start with and let's just do the NPM
+install, right?
+install, right?
+ 
+install, right?
+And now I'm going to see show you how
+And now I'm going to see show you how
+ 
+And now I'm going to see show you how
+easy it is to get this set up now. So,
+easy it is to get this set up now. So,
+ 
+easy it is to get this set up now. So,
+we just going to install the package
+we just going to install the package
+ 
+we just going to install the package
+with NPM install. And you can see
+with NPM install. And you can see
+ 
+with NPM install. And you can see
+Yeah. This is installed. And now I'm
+Yeah. This is installed. And now I'm
+ 
+Yeah. This is installed. And now I'm
+just going to tell it uh
+just going to tell it uh
+ 
+just going to tell it uh
+Yeah, it's a browser automation API for
+Yeah, it's a browser automation API for
+ 
+Yeah, it's a browser automation API for
+AI agents using Chrome CDP. Let me
+AI agents using Chrome CDP. Let me
+ 
+AI agents using Chrome CDP. Let me
+install it globally.
+install it globally.
+ 
+install it globally.
+Uh yeah, that is fine. We didn't really
+Uh yeah, that is fine. We didn't really
+ 
+Uh yeah, that is fine. We didn't really
+need to install it globally. But it's
+need to install it globally. But it's
+ 
+need to install it globally. But it's
+fine. We can use it for other things,
+fine. We can use it for other things,
+ 
+fine. We can use it for other things,
+too.
+too.
+ 
+too.
+Uh but now I just want to say
+Uh but now I just want to say
+ 
+Uh but now I just want to say
+do you know
+do you know
+ 
+do you know
+how to use it, right?
+how to use it, right?
+ 
+how to use it, right?
+Yeah, so we kind of read all the
+Yeah, so we kind of read all the
+ 
+Yeah, so we kind of read all the
+information. So, now we can just start
+information. So, now we can just start
+ 
+information. So, now we can just start
+this. So, I'm just going to say
+this. So, I'm just going to say
+ 
+this. So, I'm just going to say
+uh go to Hacker News or something like
+uh go to Hacker News or something like
+ 
+uh go to Hacker News or something like
+that, right?
+that, right?
+ 
+that, right?
+That should be enough. We are kind of
+That should be enough. We are kind of
+ 
+That should be enough. We are kind of
+already running on this port now. So,
+already running on this port now. So,
+ 
+already running on this port now. So,
+let's see if that's going to be an
+let's see if that's going to be an
+ 
+let's see if that's going to be an
+issue. We're just going to do surf agent
+issue. We're just going to do surf agent
+ 
+issue. We're just going to do surf agent
+start. You can see we are already
+start. You can see we are already
+ 
+start. You can see we are already
+running on this port. Yeah, but that is
+running on this port. Yeah, but that is
+ 
+running on this port. Yeah, but that is
+fine. So, now it should just going to
+fine. So, now it should just going to
+ 
+fine. So, now it should just going to
+pick a different port and we can open up
+pick a different port and we can open up
+ 
+pick a different port and we can open up
+this, right? And now we are inside here.
+this, right? And now we are inside here.
+ 
+this, right? And now we are inside here.
+So, you can see we went to Hacker News,
+So, you can see we went to Hacker News,
+ 
+So, you can see we went to Hacker News,
+perfect.
+perfect.
+ 
+perfect.
+So, let me give you some different
+So, let me give you some different
+ 
+So, let me give you some different
+instructions here of what we can do. So,
+instructions here of what we can do. So,
+ 
+instructions here of what we can do. So,
+you can see it's using reading all the
+you can see it's using reading all the
+ 
+you can see it's using reading all the
+information here. You can see we have
+information here. You can see we have
+ 
+information here. You can see we have
+DaVinci Resolve. This is the top post.
+DaVinci Resolve. This is the top post.
+ 
+DaVinci Resolve. This is the top post.
+We got all the posts. You want me to
+We got all the posts. You want me to
+ 
+We got all the posts. You want me to
+click any of these articles. So, let's
+click any of these articles. So, let's
+ 
+click any of these articles. So, let's
+say we say click into number 10,
+say we say click into number 10,
+ 
+say we say click into number 10,
+distributed duck DB.
+distributed duck DB.
+ 
+distributed duck DB.
+instance. So, let's just say click to
+instance. So, let's just say click to
+ 
+instance. So, let's just say click to
+ 
+now.
+now.
+ 
+now.
+Yeah, we got right right into the open
+Yeah, we got right right into the open
+ 
+Yeah, we got right right into the open
+duck DB, right? Perfect. So, let's just
+duck DB, right? Perfect. So, let's just
+ 
+duck DB, right? Perfect. So, let's just
+go back here and let's just leave Hacker
+go back here and let's just leave Hacker
+ 
+go back here and let's just leave Hacker
+News because now I want to show you that
+News because now I want to show you that
+ 
+News because now I want to show you that
+we can actually do Google Sheets with
+we can actually do Google Sheets with
+ 
+we can actually do Google Sheets with
+this. This is pretty cool.
+this. This is pretty cool.
+ 
+this. This is pretty cool.
+So, now I'm just going to say, "Yeah,
+So, now I'm just going to say, "Yeah,
+ 
+So, now I'm just going to say, "Yeah,
+you can see it kind of read the Google
+you can see it kind of read the Google
+ 
+you can see it kind of read the Google
+Sheets." Uh let's do like a quick
+Sheets." Uh let's do like a quick
+ 
+Sheets." Uh let's do like a quick
+research project now. Let's just try to
+research project now. Let's just try to
+ 
+research project now. Let's just try to
+do use surf agents to find all the API
+do use surf agents to find all the API
+ 
+do use surf agents to find all the API
+prices for Opus 4.6, Sonnet 4.6, GPT
+prices for Opus 4.6, Sonnet 4.6, GPT
+ 
+prices for Opus 4.6, Sonnet 4.6, GPT
+ 
+Uh then enter these into Google Sheets,
+Uh then enter these into Google Sheets,
+ 
+Uh then enter these into Google Sheets,
+right?
+right?
+ 
+right?
+So, let's see if we can do this
+So, let's see if we can do this
+ 
+So, let's see if we can do this
+challenge here now. So, it needs to go
+challenge here now. So, it needs to go
+ 
+challenge here now. So, it needs to go
+out, find all the prices, right? You can
+out, find all the prices, right? You can
+ 
+out, find all the prices, right? You can
+see it's starting. So, it should be
+see it's starting. So, it should be
+ 
+see it's starting. So, it should be
+pretty quick because we are using this
+pretty quick because we are using this
+ 
+pretty quick because we are using this
+recon call to you can see it kind of
+recon call to you can see it kind of
+ 
+recon call to you can see it kind of
+speeding up here to find uh everything
+speeding up here to find uh everything
+ 
+speeding up here to find uh everything
+it needs to click uh autonomous. So, you
+it needs to click uh autonomous. So, you
+ 
+it needs to click uh autonomous. So, you
+can see now we went to Claude, we went
+can see now we went to Claude, we went
+ 
+can see now we went to Claude, we went
+to OpenAI, we went to Gemini, and we are
+to OpenAI, we went to Gemini, and we are
+ 
+to OpenAI, we went to Gemini, and we are
+looking for those prices. And the final
+looking for those prices. And the final
+ 
+looking for those prices. And the final
+thing we wanted to do was to go to
+thing we wanted to do was to go to
+ 
+thing we wanted to do was to go to
+Google Sheets, fill in all this
+Google Sheets, fill in all this
+ 
+Google Sheets, fill in all this
+information. You can see we are probably
+information. You can see we are probably
+ 
+information. You can see we are probably
+just looking this up here now. Yeah, and
+just looking this up here now. Yeah, and
+ 
+just looking this up here now. Yeah, and
+it probably wants to go back to Google
+it probably wants to go back to Google
+ 
+it probably wants to go back to Google
+Sheets once we have all the information.
+Sheets once we have all the information.
+ 
+Sheets once we have all the information.
+And we can start putting this into
+And we can start putting this into
+ 
+And we can start putting this into
+uh the spreadsheets. So, let's see if we
+uh the spreadsheets. So, let's see if we
+ 
+uh the spreadsheets. So, let's see if we
+can do that. Just give it some time
+can do that. Just give it some time
+ 
+can do that. Just give it some time
+here.
+here.
+ 
+here.
+And now you can see we are going back to
+And now you can see we are going back to
+ 
+And now you can see we are going back to
+Google Sheets. And now let's see if it
+Google Sheets. And now let's see if it
+ 
+Google Sheets. And now let's see if it
+can actually navigate this. You can see
+can actually navigate this. You can see
+ 
+can actually navigate this. You can see
+we are trying now. You can see if we go
+we are trying now. You can see if we go
+ 
+we are trying now. You can see if we go
+here, we are using so commands, right?
+here, we are using so commands, right?
+ 
+here, we are using so commands, right?
+Value A1.
+Value A1.
+ 
+Value A1.
+Now, it's going to try to figure out how
+Now, it's going to try to figure out how
+ 
+Now, it's going to try to figure out how
+this works. You can see we could put A1
+this works. You can see we could put A1
+ 
+this works. You can see we could put A1
+down there. And let's just see if it
+down there. And let's just see if it
+ 
+down there. And let's just see if it
+figures this out now. And here you can
+figures this out now. And here you can
+ 
+figures this out now. And here you can
+see it goes like it puts in all the rows
+see it goes like it puts in all the rows
+ 
+see it goes like it puts in all the rows
+here. So, we do model, input, output.
+here. So, we do model, input, output.
+ 
+here. So, we do model, input, output.
+Hopefully now you can see it have
+Hopefully now you can see it have
+ 
+Hopefully now you can see it have
+faster. This is skips to Opus. Uh yeah,
+faster. This is skips to Opus. Uh yeah,
+ 
+faster. This is skips to Opus. Uh yeah,
+and Sonnet 5.4. I guess we can do a bit
+and Sonnet 5.4. I guess we can do a bit
+ 
+and Sonnet 5.4. I guess we can do a bit
+like this.
+like this.
+ 
+like this.
+And yeah, maybe I messed it up now. GPT
+And yeah, maybe I messed it up now. GPT
+ 
+And yeah, maybe I messed it up now. GPT
+ 
+should do Gemini 3.1 Pro. Yeah, you can
+should do Gemini 3.1 Pro. Yeah, you can
+ 
+should do Gemini 3.1 Pro. Yeah, you can
+see this is fully autonomous. It kind of
+see this is fully autonomous. It kind of
+ 
+see this is fully autonomous. It kind of
+learned how to operate sheets. And now
+learned how to operate sheets. And now
+ 
+learned how to operate sheets. And now
+we can do this
+we can do this
+ 
+we can do this
+things autonomous here. We can also
+things autonomous here. We can also
+ 
+things autonomous here. We can also
+maybe ask it to do a graph or something.
+maybe ask it to do a graph or something.
+ 
+maybe ask it to do a graph or something.
+Let's do that. Okay, so let's just ask
+Let's do that. Okay, so let's just ask
+ 
+Let's do that. Okay, so let's just ask
+for a graph of the pricing.
+for a graph of the pricing.
+ 
+for a graph of the pricing.
+Just for fun, let's see if we can do
+Just for fun, let's see if we can do
+ 
+Just for fun, let's see if we can do
+this.
+this.
+ 
+this.
+So, this kind of opens up a few more
+So, this kind of opens up a few more
+ 
+So, this kind of opens up a few more
+things because we can go out, do
+things because we can go out, do
+ 
+things because we can go out, do
+research. What happened here now?
+research. What happened here now?
+ 
+research. What happened here now?
+An error record occurred. Okay, let's
+An error record occurred. Okay, let's
+ 
+An error record occurred. Okay, let's
+see if we can fix it. But what I wanted
+see if we can fix it. But what I wanted
+ 
+see if we can fix it. But what I wanted
+to say is that we can go out, do some
+to say is that we can go out, do some
+ 
+to say is that we can go out, do some
+research, and go back, put everything
+research, and go back, put everything
+ 
+research, and go back, put everything
+into like a spreadsheet or something
+into like a spreadsheet or something
+ 
+into like a spreadsheet or something
+like that. Do some statistics and stuff
+like that. Do some statistics and stuff
+ 
+like that. Do some statistics and stuff
+like that. But one thing I got to say is
+like that. But one thing I got to say is
+ 
+like that. But one thing I got to say is
+that this is not this is not headless.
+that this is not this is not headless.
+ 
+that this is not this is not headless.
+So, you need some setup like I have. I
+So, you need some setup like I have. I
+ 
+So, you need some setup like I have. I
+kind of have a Mac mini that is running
+kind of have a Mac mini that is running
+ 
+kind of have a Mac mini that is running
+this and is able to use the browser,
+this and is able to use the browser,
+ 
+this and is able to use the browser,
+right? That is quite important. So, this
+right? That is quite important. So, this
+ 
+right? That is quite important. So, this
+is not headless. I haven't looked at
+is not headless. I haven't looked at
+ 
+is not headless. I haven't looked at
+that yet. So, we just reloaded page.
+that yet. So, we just reloaded page.
+ 
+that yet. So, we just reloaded page.
+Now, let's see if we can start to work
+Now, let's see if we can start to work
+ 
+Now, let's see if we can start to work
+on the graph we asked for.
+on the graph we asked for.
+ 
+on the graph we asked for.
+As you can see, it's missing actually a
+As you can see, it's missing actually a
+ 
+As you can see, it's missing actually a
+price here. But let's just see what
+price here. But let's just see what
+ 
+price here. But let's just see what
+happens.
+happens.
+ 
+happens.
+And yeah, let's just let it run for a
+And yeah, let's just let it run for a
+ 
+And yeah, let's just let it run for a
+while here. Okay, so you can see it goes
+while here. Okay, so you can see it goes
+ 
+while here. Okay, so you can see it goes
+for insert. And let's see if it's going
+for insert. And let's see if it's going
+ 
+for insert. And let's see if it's going
+to pick chart here. And yeah, there you
+to pick chart here. And yeah, there you
+ 
+to pick chart here. And yeah, there you
+can see we have it. We have the chart
+can see we have it. We have the chart
+ 
+can see we have it. We have the chart
+here, right? 1 million per token. We are
+here, right? 1 million per token. We are
+ 
+here, right? 1 million per token. We are
+kind of missing this for Gemini 3.5 Pro.
+kind of missing this for Gemini 3.5 Pro.
+ 
+kind of missing this for Gemini 3.5 Pro.
+ 
+asked for. Okay, that's pretty good.
+asked for. Okay, that's pretty good.
+ 
+asked for. Okay, that's pretty good.
+Nice. And it's going to yeah, that's
+Nice. And it's going to yeah, that's
+ 
+Nice. And it's going to yeah, that's
+fine.
+fine.
+ 
+fine.
+And I think we're just going to stop it
+And I think we're just going to stop it
+ 
+And I think we're just going to stop it
+here. And you can see it is possible to
+here. And you can see it is possible to
+ 
+here. And you can see it is possible to
+operate like Google Sheets or something
+operate like Google Sheets or something
+ 
+operate like Google Sheets or something
+by using this system, surf agent here.
+by using this system, surf agent here.
+ 
+by using this system, surf agent here.
+But of course, the most uh useful thing
+But of course, the most uh useful thing
+ 
+But of course, the most uh useful thing
+is that we can now skip APIs, right?
+is that we can now skip APIs, right?
+ 
+is that we can now skip APIs, right?
+Because
+Because
+ 
+Because
+if you have like a a station that can
+if you have like a a station that can
+ 
+if you have like a a station that can
+run that doesn't need has to be
+run that doesn't need has to be
+ 
+run that doesn't need has to be
+headless, you can just log in to your
+headless, you can just log in to your
+ 
+headless, you can just log in to your
+page here. So, I'm logged in on x.com
+page here. So, I'm logged in on x.com
+ 
+page here. So, I'm logged in on x.com
+here, and I can just say something like,
+here, and I can just say something like,
+ 
+here, and I can just say something like,
+"We are on x.com explore searching for
+"We are on x.com explore searching for
+ 
+"We are on x.com explore searching for
+the latest news on Claude Mitous,
+the latest news on Claude Mitous,
+ 
+the latest news on Claude Mitous,
+right?" And this should now be able to
+right?" And this should now be able to
+ 
+right?" And this should now be able to
+to kind of adapt to the page we are on
+to kind of adapt to the page we are on
+ 
+to kind of adapt to the page we are on
+because we are running this recon
+because we are running this recon
+ 
+because we are running this recon
+uh command that kind of uh maps
+uh command that kind of uh maps
+ 
+uh command that kind of uh maps
+everything that is on the page, and we
+everything that is on the page, and we
+ 
+everything that is on the page, and we
+can quickly navigate to those elements,
+can quickly navigate to those elements,
+ 
+can quickly navigate to those elements,
+right? So, now we're just going to look
+right? So, now we're just going to look
+ 
+right? So, now we're just going to look
+up this, and we can just recon the page.
+up this, and we can just recon the page.
+ 
+up this, and we can just recon the page.
+We navigate everything on the page, and
+We navigate everything on the page, and
+ 
+We navigate everything on the page, and
+we can start, yeah, doing stuff on the
+we can start, yeah, doing stuff on the
+ 
+we can start, yeah, doing stuff on the
+page autonomously by using SurfAgent.
+page autonomously by using SurfAgent.
+ 
+page autonomously by using SurfAgent.
+So, we went to explore, right? I said we
+So, we went to explore, right? I said we
+ 
+So, we went to explore, right? I said we
+wanted to search for uh Claude Co-
+wanted to search for uh Claude Co-
+ 
+wanted to search for uh Claude Co-
+Claude Mitous.
+Claude Mitous.
+ 
+Claude Mitous.
+So, let's see if we put that into the
+So, let's see if we put that into the
+ 
+So, let's see if we put that into the
+search field.
+search field.
+ 
+search field.
+Yeah, Claude Mitous, we are searching
+Yeah, Claude Mitous, we are searching
+ 
+Yeah, Claude Mitous, we are searching
+for that now, and we can kind of look up
+for that now, and we can kind of look up
+ 
+for that now, and we can kind of look up
+Uh yeah, we have some small issues here,
+Uh yeah, we have some small issues here,
+ 
+Uh yeah, we have some small issues here,
+but now we can uh find context on X,
+but now we can uh find context on X,
+ 
+but now we can uh find context on X,
+right? We go to latest, and we start
+right? We go to latest, and we start
+ 
+right? We go to latest, and we start
+mapping out the latest news on Claude
+mapping out the latest news on Claude
+ 
+mapping out the latest news on Claude
+Mitous, and we can kind of build up like
+Mitous, and we can kind of build up like
+ 
+Mitous, and we can kind of build up like
+a context here. And if you wanted to do
+a context here. And if you wanted to do
+ 
+a context here. And if you wanted to do
+something more with
+something more with
+ 
+something more with
+Yeah, that context, because we can read
+Yeah, that context, because we can read
+ 
+Yeah, that context, because we can read
+everything on the page, and you can see
+everything on the page, and you can see
+ 
+everything on the page, and you can see
+we can navigate, we can go to users, we
+we can navigate, we can go to users, we
+ 
+we can navigate, we can go to users, we
+can write post and everything. So, let's
+can write post and everything. So, let's
+ 
+can write post and everything. So, let's
+say uh let's try to build a post here on
+say uh let's try to build a post here on
+ 
+say uh let's try to build a post here on
+Claude Mitous, and yeah,
+Claude Mitous, and yeah,
+ 
+Claude Mitous, and yeah,
+see if we can make it work. So, let's
+see if we can make it work. So, let's
+ 
+see if we can make it work. So, let's
+just do create a creative post on Claude
+just do create a creative post on Claude
+ 
+just do create a creative post on Claude
+Mitous, lower capital, short, and post
+Mitous, lower capital, short, and post
+ 
+Mitous, lower capital, short, and post
+it.
+it.
+ 
+it.
+So, let's see if we can adapt to that
+So, let's see if we can adapt to that
+ 
+So, let's see if we can adapt to that
+request here on X.
+request here on X.
+ 
+request here on X.
+We go to post, right? And we should be
+We go to post, right? And we should be
+ 
+We go to post, right? And we should be
+able to find this straight away using
+able to find this straight away using
+ 
+able to find this straight away using
+kind of the recon feature, and we should
+kind of the recon feature, and we should
+ 
+kind of the recon feature, and we should
+be able to just uh insert
+be able to just uh insert
+ 
+be able to just uh insert
+uh the post here, and just click post.
+uh the post here, and just click post.
+ 
+uh the post here, and just click post.
+So, yeah, you can even automate uh stuff
+So, yeah, you can even automate uh stuff
+ 
+So, yeah, you can even automate uh stuff
+like this if you wanted to. Uh I already
+like this if you wanted to. Uh I already
+ 
+like this if you wanted to. Uh I already
+done my experiments on this, so I'm not
+done my experiments on this, so I'm not
+ 
+done my experiments on this, so I'm not
+using this so much for this now. You can
+using this so much for this now. You can
+ 
+using this so much for this now. You can
+see here, we put everything in, and
+see here, we put everything in, and
+ 
+see here, we put everything in, and
+we're just going to click post, right?
+we're just going to click post, right?
+ 
+we're just going to click post, right?
+&gt;&gt; [snorts]
+&gt;&gt; [snorts]
+ 
+&gt;&gt; [snorts]
+&gt;&gt; And yeah, super easy, and it works
+&gt;&gt; And yeah, super easy, and it works
+ 
+&gt;&gt; And yeah, super easy, and it works
+pretty smooth. So, what I was most
+pretty smooth. So, what I was most
+ 
+pretty smooth. So, what I was most
+impressed by uh
+impressed by uh
+ 
+impressed by uh
+creating this over the weekend is the
+creating this over the weekend is the
+ 
+creating this over the weekend is the
+speed, because it's gotten just so much
+speed, because it's gotten just so much
+ 
+speed, because it's gotten just so much
+quicker when we actually run this recon
+quicker when we actually run this recon
+ 
+quicker when we actually run this recon
+uh
+uh
+ 
+uh
+command first to kind of uh map
+command first to kind of uh map
+ 
+command first to kind of uh map
+everything that is on the page, right?
+everything that is on the page, right?
+ 
+everything that is on the page, right?
+So, let's just do let's go to YouTube,
+So, let's just do let's go to YouTube,
+ 
+So, let's just do let's go to YouTube,
+find videos on Claude Mitous. It should
+find videos on Claude Mitous. It should
+ 
+find videos on Claude Mitous. It should
+be able to just
+be able to just
+ 
+be able to just
+uh adapt to that very quick. Just go to
+uh adapt to that very quick. Just go to
+ 
+uh adapt to that very quick. Just go to
+youtube.com, search query Claude Mitous,
+youtube.com, search query Claude Mitous,
+ 
+youtube.com, search query Claude Mitous,
+and you can see
+and you can see
+ 
+and you can see
+uh yeah, we find some videos on this,
+uh yeah, we find some videos on this,
+ 
+uh yeah, we find some videos on this,
+and it should also be able to just grab
+and it should also be able to just grab
+ 
+and it should also be able to just grab
+the transcription of a video. Let's go
+the transcription of a video. Let's go
+ 
+the transcription of a video. Let's go
+to Love Levels video here.
+to Love Levels video here.
+ 
+to Love Levels video here.
+Let's go to Love Level uh
+Let's go to Love Level uh
+ 
+Let's go to Love Level uh
+grab transcript
+grab transcript
+ 
+grab transcript
+and write a summary, something like
+and write a summary, something like
+ 
+and write a summary, something like
+this, right?
+this, right?
+ 
+this, right?
+So, let's see if we can do that. It
+So, let's see if we can do that. It
+ 
+So, let's see if we can do that. It
+should be able to do that, I think, just
+should be able to do that, I think, just
+ 
+should be able to do that, I think, just
+because of the mapping we do with the
+because of the mapping we do with the
+ 
+because of the mapping we do with the
+recon. You can see we are going straight
+recon. You can see we are going straight
+ 
+recon. You can see we are going straight
+into the video here, and we are playing
+into the video here, and we are playing
+ 
+into the video here, and we are playing
+the video, but we should be looking for
+the video, but we should be looking for
+ 
+the video, but we should be looking for
+the transcript, right? You can see we
+the transcript, right? You can see we
+ 
+the transcript, right? You can see we
+are also scrolling, so it's very good at
+are also scrolling, so it's very good at
+ 
+are also scrolling, so it's very good at
+scrolling, and it says show transcript,
+scrolling, and it says show transcript,
+ 
+scrolling, and it says show transcript,
+and that should be here, right? On the
+and that should be here, right? On the
+ 
+and that should be here, right? On the
+right side, yeah.
+right side, yeah.
+ 
+right side, yeah.
+And it should be able to grab the full
+And it should be able to grab the full
+ 
+And it should be able to grab the full
+transcript here, and we can use that for
+transcript here, and we can use that for
+ 
+transcript here, and we can use that for
+context, like I said earlier, if we
+context, like I said earlier, if we
+ 
+context, like I said earlier, if we
+wanted to.
+wanted to.
+ 
+wanted to.
+Got the full tran- transcript,
+Got the full tran- transcript,
+ 
+Got the full tran- transcript,
+uh the core finding,
+uh the core finding,
+ 
+uh the core finding,
+Claude Mitous preview can autonomously
+Claude Mitous preview can autonomously
+ 
+Claude Mitous preview can autonomously
+find and exploit zero-day
+find and exploit zero-day
+ 
+find and exploit zero-day
+vulnerabilities. Pretty interesting
+vulnerabilities. Pretty interesting
+ 
+vulnerabilities. Pretty interesting
+model.
+model.
+ 
+model.
+So, yeah, I think I kind of have showed
+So, yeah, I think I kind of have showed
+ 
+So, yeah, I think I kind of have showed
+just a small bit of what we can do now
+just a small bit of what we can do now
+ 
+just a small bit of what we can do now
+with this automation, and I just started
+with this automation, and I just started
+ 
+with this automation, and I just started
+with it. So, I haven't really explored
+with it. So, I haven't really explored
+ 
+with it. So, I haven't really explored
+all the possibilities,
+all the possibilities,
+ 
+all the possibilities,
+but uh it should be open source, so I
+but uh it should be open source, so I
+ 
+but uh it should be open source, so I
+made it like a npm package, but you can
+made it like a npm package, but you can
+ 
+made it like a npm package, but you can
+also go to the GitHub if you wanted to
+also go to the GitHub if you wanted to
+ 
+also go to the GitHub if you wanted to
+check it out, right? And I'm going to
+check it out, right? And I'm going to
+ 
+check it out, right? And I'm going to
+leave all the links in the description.
+leave all the links in the description.
+ 
+leave all the links in the description.
+So, here you can read a bit more about
+So, here you can read a bit more about
+ 
+So, here you can read a bit more about
+how it works, and how you can adapt it
+how it works, and how you can adapt it
+ 
+how it works, and how you can adapt it
+to your use case.
+to your use case.
+ 
+to your use case.
+So, yeah, hope you will check it out.
+So, yeah, hope you will check it out.
+ 
+So, yeah, hope you will check it out.
+And that's what I want to share today,
+And that's what I want to share today,
+ 
+And that's what I want to share today,
+and I'm going to come back with more
+and I'm going to come back with more
+ 
+and I'm going to come back with more
+videos on this and how we can use it to
+videos on this and how we can use it to
+ 
+videos on this and how we can use it to
+set up these automated pipelines.
+set up these automated pipelines.
+ 
+set up these automated pipelines.
+Uh I've gotten into doing some small
+Uh I've gotten into doing some small
+ 
+Uh I've gotten into doing some small
+passive incomes now with these
+passive incomes now with these
+ 
+passive incomes now with these
+pipelines, so this fits very well to
+pipelines, so this fits very well to
+ 
+pipelines, so this fits very well to
+some testing I have running at the
+some testing I have running at the
+ 
+some testing I have running at the
+moment.
+moment.
+ 
+moment.
+So, yeah, go check it out, and don't
+So, yeah, go check it out, and don't
+ 
+So, yeah, go check it out, and don't
+forget to check out Freebird, that is
+forget to check out Freebird, that is
+ 
+forget to check out Freebird, that is
+also a link in the description. So,
+also a link in the description. So,
+ 
+also a link in the description. So,
+yeah, hope you enjoyed it, and hope you
+yeah, hope you enjoyed it, and hope you
+ 
+yeah, hope you enjoyed it, and hope you
+will get some use of this. Share it,
+will get some use of this. Share it,
+ 
+will get some use of this. Share it,
+leave some requests uh on the
+leave some requests uh on the
+ 
+leave some requests uh on the
+uh GitHub if you have any things we want
+uh GitHub if you have any things we want
+ 
+uh GitHub if you have any things we want
+to upgrade, because this is not perfect.
+to upgrade, because this is not perfect.
+ 
+to upgrade, because this is not perfect.
+I just want to say that, and we have
+I just want to say that, and we have
+ 
+I just want to say that, and we have
+some Claude MD files here, some
+some Claude MD files here, some
+ 
+some Claude MD files here, some
+agent.md,
+agent.md,
+ 
+agent.md,
+and there's a lot of things we can
+and there's a lot of things we can
+ 
+and there's a lot of things we can
+improve, but uh I've been doing some QA
+improve, but uh I've been doing some QA
+ 
+improve, but uh I've been doing some QA
+testing, but I can't do everything
+testing, but I can't do everything
+ 
+testing, but I can't do everything
+alone. So, if you have any issues, pull
+alone. So, if you have any issues, pull
+ 
+alone. So, if you have any issues, pull
+request, just uh yeah,
+request, just uh yeah,
+ 
+request, just uh yeah,
+make it happen.
+make it happen.
+ 
+make it happen.
+So, yeah, thank you for tuning in. Like
+So, yeah, thank you for tuning in. Like
+ 
+So, yeah, thank you for tuning in. Like
+I said, check out the links in the
+I said, check out the links in the
+ 
+I said, check out the links in the
+description, and have a great day.

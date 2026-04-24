@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "nano-banana": {
+      "command": "npx",
+      "args": ["-y", "nano-banana-mcp"],
+      "env": {
+        "GEMINI_API_KEY": "AIzaSyCSOOyI0QWaulpV3eMCXyycDC88EWuCEUA"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "C:\\Users\\carlo\\OneDrive\\Escritorio\\creastilo-agency\\demos\\seguros\\landing-pro-app\\nano-banana-projects"]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"]
+    }
+  }
+}

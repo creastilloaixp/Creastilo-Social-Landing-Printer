@@ -1,0 +1,736 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surfagent | The Browser Tool for AI Agents.</title>
+    
+    <!-- SEO & SEGURIDAD -->
+    <meta name="description" content="Surfagent provides developers with a powerful, lightweight tool to connect any AI agent directly to Chrome. We empower agents to see, understand, and interact with the web, turning complex automation tasks into simple, efficient workflows.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Surfagent">
+    <meta property="og:description" content="Surfagent provides developers with a powerful, lightweight tool to connect any AI agent directly to Chrome. We empower agents to see, understand, and interact with the web, turning complex automation tasks into simple, efficient workflows.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #00FF41;
+            --secondary: #262626;
+            --accent: #00FF41;
+            --background: #0A0A0A;
+            --text: #F5F5F5;
+            --font-h: 'JetBrains Mono', serif;
+            --font-b: 'JetBrains Mono', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: var(--background); 
+            color: var(--text); 
+            font-family: var(--font-b);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: var(--font-h); color: var(--primary); }
+        .tier-badge {
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: var(--primary); color: var(--background);
+            padding: 5px 15px; border-radius: 20px; font-size: 10px; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tier-badge">Express Conversion</div>
+    <div id="content-wrapper">
+    <style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0a0a0a; }
+
+  /* === Navigation === */
+  .cinema-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .cinema-nav.scrolled {
+    padding: 12px 40px;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-logo {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span {
+    color: #6366f1;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: system-ui;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: white;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    padding: 10px 24px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s !important;
+  }
+
+  .nav-cta:hover {
+    background: rgba(99, 102, 241, 0.25) !important;
+  }
+
+  .nav-cta::after { display: none !important; }
+
+  /* === Sections === */
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px;
+    position: relative;
+  }
+
+  .section h2 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    text-align: center;
+  }
+
+  .section p {
+    font-family: system-ui;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    max-width: 500px;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  /* Section divider */
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 24px auto 0;
+  }
+
+  /* Mobile hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    width: 24px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+    z-index: 1001;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+</style>
+<div class="module-section">
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="cinema-nav" id="nav">
+  <a href="#hero" class="nav-logo">Cinema<span>Sites</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero" data-section="hero" class="active">Home</a></li>
+    <li><a href="#about" data-section="about">About</a></li>
+    <li><a href="#services" data-section="services">Services</a></li>
+    <li><a href="#portfolio" data-section="portfolio">Portfolio</a></li>
+    <li><a href="#contact" data-section="contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="section" id="hero" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e)">
+  <div><h2>Welcome Home</h2><p>This is the hero section with full viewport height and smooth scroll navigation.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="about">
+  <div><h2>About Us</h2><p>Learn about our mission to create the most cinematic web experiences in the industry.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="services" style="background:rgba(255,255,255,0.02)">
+  <div><h2>Our Services</h2><p>Brand analysis, scene generation, cinematic builds, and seamless deployment.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="portfolio">
+  <div><h2>Portfolio</h2><p>Browse our collection of premium cinematic websites built for real clients.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="contact" style="background:rgba(255,255,255,0.02)">
+  <div><h2>Get In Touch</h2><p>Ready to transform your online presence? Let's build something extraordinary.</p><div class="section-divider"></div></div>
+</div>
+
+<script>
+(function() {
+  const nav = document.getElementById('nav');
+  const links = document.querySelectorAll('.nav-links a[data-section]');
+  const sections = document.querySelectorAll('.section');
+  const progress = document.getElementById('scrollProgress');
+
+  // Scroll state
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    // Nav morph
+    nav.classList.toggle('scrolled', scrollY > 50);
+
+    // Progress bar
+    progress.style.width = ((scrollY / maxScroll) * 100) + '%';
+
+    // Active section detection
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 200;
+      if (scrollY >= top) current = section.id;
+    });
+
+    links.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === current);
+    });
+  });
+})();
+</script>
+</div>
+<script>
+(function() {
+  const nav = document.getElementById('nav');
+  const links = document.querySelectorAll('.nav-links a[data-section]');
+  const sections = document.querySelectorAll('.section');
+  const progress = document.getElementById('scrollProgress');
+
+  // Scroll state
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    // Nav morph
+    nav.classList.toggle('scrolled', scrollY > 50);
+
+    // Progress bar
+    progress.style.width = ((scrollY / maxScroll) * 100) + '%';
+
+    // Active section detection
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 200;
+      if (scrollY >= top) current = section.id;
+    });
+
+    links.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === current);
+    });
+  });
+})();
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 200vh; }
+
+  .type-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 60px;
+  }
+
+  /* Standard typewriter */
+  .typewriter {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #6366f1;
+    animation: blink-caret 0.8s step-end infinite;
+    max-width: 100%;
+  }
+
+  @keyframes blink-caret {
+    50% { border-color: transparent; }
+  }
+
+  /* Multi-line typewriter */
+  .typewriter-multi {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 16px;
+    color: #a5f3fc;
+    line-height: 1.8;
+    max-width: 600px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .typewriter-multi .line {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .typewriter-multi .line.typed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .typewriter-multi .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: #6366f1;
+    vertical-align: text-bottom;
+    animation: blink-caret 0.8s step-end infinite;
+  }
+
+  /* Code-style typewriter */
+  .type-code {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px 32px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .type-code .line-number {
+    color: rgba(255,255,255,0.2);
+    margin-right: 16px;
+    user-select: none;
+    font-size: 13px;
+  }
+
+  .type-code .keyword { color: #c084fc; }
+  .type-code .string { color: #86efac; }
+  .type-code .function { color: #93c5fd; }
+  .type-code .comment { color: rgba(255,255,255,0.3); font-style: italic; }
+
+  .label {
+    font-family: system-ui;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+</style>
+<div class="module-section">
+
+<div class="type-section">
+  <!-- Standard single-line typewriter -->
+  <div style="text-align:center">
+    <div class="label">Hero Tagline</div>
+    <div class="typewriter" data-typewriter data-speed="60" data-text="Building cinematic websites that convert."></div>
+  </div>
+
+  <!-- Multi-line typewriter -->
+  <div style="text-align:center">
+    <div class="label">Brand Story</div>
+    <div class="typewriter-multi" data-typewriter-multi>
+      <div class="line" data-line="Founded in 2020, we set out to"></div>
+      <div class="line" data-line="redefine what a website could be."></div>
+      <div class="line" data-line=""></div>
+      <div class="line" data-line="Not just pages — but experiences."></div>
+      <div class="line" data-line="Not just content — but cinema."></div>
+    </div>
+  </div>
+
+  <!-- Code typewriter -->
+  <div>
+    <div class="label">Implementation</div>
+    <div class="type-code typewriter-multi" data-typewriter-multi>
+      <div class="line" data-line='<span class="comment">// Initialize cinematic agent</span>'></div>
+      <div class="line" data-line='<span class="keyword">const</span> agent = <span class="keyword">new</span> <span class="function">CinematicSites</span>({'></div>
+      <div class="line" data-line='&nbsp;&nbsp;brand: <span class="string">"analyzed"</span>,'></div>
+      <div class="line" data-line='&nbsp;&nbsp;scene: <span class="string">"generated"</span>,'></div>
+      <div class="line" data-line='&nbsp;&nbsp;quality: <span class="string">"premium"</span>'></div>
+      <div class="line" data-line="});"></div>
+      <div class="line" data-line=""></div>
+      <div class="line" data-line='<span class="keyword">await</span> agent.<span class="function">deploy</span>();'></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Single-line typewriter
+  document.querySelectorAll('[data-typewriter]').forEach(el => {
+    const text = el.dataset.text || '';
+    const speed = parseInt(el.dataset.speed) || 50;
+    el.textContent = '';
+    let i = 0;
+
+    function startTyping() {
+      if (i < text.length) {
+        el.textContent += text[i];
+        i++;
+        setTimeout(startTyping, speed);
+      }
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { startTyping(); obs.unobserve(el); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // Multi-line typewriter
+  document.querySelectorAll('[data-typewriter-multi]').forEach(container => {
+    const lines = container.querySelectorAll('.line');
+    let currentLine = 0;
+
+    function typeLine() {
+      if (currentLine >= lines.length) return;
+      const line = lines[currentLine];
+      line.classList.add('typed');
+      line.innerHTML = line.dataset.line + (currentLine === lines.length - 1 ? '<span class="cursor"></span>' : '');
+      currentLine++;
+      setTimeout(typeLine, 400);
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { typeLine(); obs.unobserve(container); }
+    }, { threshold: 0.3 });
+    obs.observe(container);
+  });
+})();
+</script>
+</div>
+<script>
+(function() {
+  // Single-line typewriter
+  document.querySelectorAll('[data-typewriter]').forEach(el => {
+    const text = el.dataset.text || '';
+    const speed = parseInt(el.dataset.speed) || 50;
+    el.textContent = '';
+    let i = 0;
+
+    function startTyping() {
+      if (i < text.length) {
+        el.textContent += text[i];
+        i++;
+        setTimeout(startTyping, speed);
+      }
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { startTyping(); obs.unobserve(el); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // Multi-line typewriter
+  document.querySelectorAll('[data-typewriter-multi]').forEach(container => {
+    const lines = container.querySelectorAll('.line');
+    let currentLine = 0;
+
+    function typeLine() {
+      if (currentLine >= lines.length) return;
+      const line = lines[currentLine];
+      line.classList.add('typed');
+      line.innerHTML = line.dataset.line + (currentLine === lines.length - 1 ? '<span class="cursor"></span>' : '');
+      currentLine++;
+      setTimeout(typeLine, 400);
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { typeLine(); obs.unobserve(container); }
+    }, { threshold: 0.3 });
+    obs.observe(container);
+  });
+})();
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 60px 40px; }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  .flip-card {
+    perspective: 1000px;
+    height: 380px;
+    cursor: pointer;
+  }
+
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .flip-card:hover .flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-front,
+  .flip-back {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .flip-front {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .flip-front img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+  }
+
+  .flip-front-content {
+    padding: 20px;
+  }
+
+  .flip-front-content h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .flip-front-content p {
+    font-family: system-ui;
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .flip-back {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 1px solid rgba(99,102,241,0.2);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+  }
+
+  .flip-back .icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .flip-back h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .flip-back p {
+    font-family: system-ui;
+    font-size: 15px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .flip-back .cta {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #6366f1;
+    color: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .flip-back .cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(99,102,241,0.4);
+  }
+
+  /* Hint indicator */
+  .flip-hint {
+    position: absolute;
+    bottom: 12px;
+    right: 16px;
+    font-family: system-ui;
+    font-size: 11px;
+    color: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+</style>
+<div class="module-section">
+
+<div class="cards-grid">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&q=80" alt="Service">
+        <div class="flip-front-content">
+          <h3>Brand Analysis</h3>
+          <p>Deep-dive into your visual identity</p>
+        </div>
+        <div class="flip-hint">Hover to flip ↻</div>
+      </div>
+      <div class="flip-back">
+        <div class="icon">🎨</div>
+        <h3>Brand Analysis</h3>
+        <p>We analyze your existing brand colors, typography, and tone to create a cohesive cinematic identity.</p>
+        <a href="#" class="cta">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Service">
+        <div class="flip-front-content">
+          <h3>Scene Generation</h3>
+          <p>AI-powered cinematic visuals</p>
+        </div>
+        <div class="flip-hint">Hover to flip ↻</div>
+      </div>
+      <div class="flip-back">
+        <div class="icon">🎬</div>
+        <h3>Scene Generation</h3>
+        <p>Using Nano Banana and Kling 3.0, we generate stunning hero animations tailored to your brand.</p>
+        <a href="#" class="cta">Learn More</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80" alt="Service">
+        <div class="flip-front-content">
+          <h3>Website Build</h3>
+          <p>Premium scroll-driven experience</p>
+        </div>
+        <div class="flip-hint">Hover to flip ↻</div>
+      </div>
+      <div class="flip-back">
+        <div class="icon">🚀</div>
+        <h3>Website Build</h3>
+        <p>We build responsive, cinematic websites with scroll-driven animations that captivate your audience.</p>
+        <a href="#" class="cta">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+        <footer style="padding: 80px 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+            <h2 style="font-size: 2rem;">Surfagent</h2>
+            <p style="opacity: 0.6; margin-top: 10px;">The Browser Tool for AI Agents.</p>
+            <div style="margin-top: 30px;">
+                <a href="#" style="color: var(--primary); text-decoration: none; font-weight: bold;">CONTACTO</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

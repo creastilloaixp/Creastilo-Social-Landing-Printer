@@ -1,0 +1,152 @@
+<!--
+  MODULE 04: Reveal Text Effect
+  Text slides up from behind a mask with staggered timing.
+  Perfect for section titles, brand story, feature headlines.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reveal Text</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 300vh; }
+
+  .reveal-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 20px;
+  }
+
+  /* Line-by-line reveal */
+  .reveal-line {
+    overflow: hidden;
+  }
+
+  .reveal-line span {
+    display: block;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 800;
+    color: white;
+    transform: translateY(105%);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-line.visible span {
+    transform: translateY(0);
+  }
+
+  .reveal-heading .reveal-line span {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: 1.1;
+  }
+
+  .reveal-sub .reveal-line span {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* Horizontal line reveal */
+  .reveal-divider {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-divider.visible {
+    width: 200px;
+  }
+
+  /* Image reveal (clip-path wipe) */
+  .reveal-image {
+    overflow: hidden;
+    border-radius: 16px;
+    max-width: 600px;
+  }
+
+  .reveal-image img {
+    width: 100%;
+    display: block;
+    clip-path: inset(100% 0 0 0);
+    transition: clip-path 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-image.visible img {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Fade-up reveal for paragraphs */
+  .reveal-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .reveal-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-fade p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<div class="reveal-section" style="height:50vh"></div>
+
+<div class="reveal-section">
+  <div class="reveal-heading">
+    <div class="reveal-line" data-reveal data-delay="0"><span>Crafting Digital</span></div>
+    <div class="reveal-line" data-reveal data-delay="100"><span>Experiences That</span></div>
+    <div class="reveal-line" data-reveal data-delay="200"><span style="color:#6366f1">Inspire.</span></div>
+  </div>
+
+  <div class="reveal-divider" data-reveal data-delay="400"></div>
+
+  <div class="reveal-sub" style="margin-top:20px">
+    <div class="reveal-line" data-reveal data-delay="500"><span>We transform brands into immersive stories</span></div>
+    <div class="reveal-line" data-reveal data-delay="600"><span>that leave a lasting impression.</span></div>
+  </div>
+</div>
+
+<div class="reveal-section">
+  <div class="reveal-image" data-reveal>
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Office">
+  </div>
+  <div class="reveal-fade" data-reveal data-delay="300">
+    <p>From concept to deployment, we handle every pixel with precision. Our cinematic approach ensures your website doesn't just inform — it captivates.</p>
+  </div>
+</div>
+
+<script>
+(function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const delay = parseInt(el.dataset.delay || 0);
+      setTimeout(() => el.classList.add('visible'), delay);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>

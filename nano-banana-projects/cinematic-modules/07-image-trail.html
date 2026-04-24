@@ -1,0 +1,151 @@
+<!--
+  MODULE 07: Image Trail Effect
+  Mouse cursor leaves a trail of images behind it.
+  Perfect for creative portfolios, flower shops, product showcases.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Trail</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    min-height: 100vh;
+    overflow: hidden;
+    cursor: crosshair;
+  }
+
+  .trail-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .trail-image {
+    position: absolute;
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+    pointer-events: none;
+    will-change: transform, opacity;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+
+  .center-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    text-align: center;
+  }
+
+  .center-text h1 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    color: rgba(255,255,255,0.08);
+    text-transform: uppercase;
+    letter-spacing: 8px;
+  }
+
+  .center-text p {
+    font-family: system-ui;
+    color: rgba(255,255,255,0.2);
+    margin-top: 12px;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<div class="center-text">
+  <h1>Move Your Mouse</h1>
+  <p>Images follow your cursor</p>
+</div>
+
+<div class="trail-container" id="trailContainer"></div>
+
+<script>
+(function() {
+  const CONFIG = {
+    images: [
+      'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=300&q=70',
+      'https://images.unsplash.com/photo-1455659817273-f96807779a8a?w=300&q=70',
+      'https://images.unsplash.com/photo-1487530811176-3780de880c2d?w=300&q=70',
+      'https://images.unsplash.com/photo-1462275646964-a0e3c11f18a6?w=300&q=70',
+      'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?w=300&q=70',
+      'https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=300&q=70',
+      'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=300&q=70',
+      'https://images.unsplash.com/photo-1496062031456-07b8f162a322?w=300&q=70',
+    ],
+    trailLength: 12,
+    threshold: 80,        // Min distance between trail images (px)
+    fadeDelay: 800,        // ms before fade starts
+    fadeDuration: 600,     // ms of fade animation
+    maxRotation: 15        // Max rotation degrees
+  };
+
+  const container = document.getElementById('trailContainer');
+  let currentIndex = 0;
+  let lastX = 0, lastY = 0;
+  let trailElements = [];
+
+  // Pre-create trail elements
+  for (let i = 0; i < CONFIG.trailLength; i++) {
+    const img = document.createElement('img');
+    img.className = 'trail-image';
+    img.src = CONFIG.images[i % CONFIG.images.length];
+    container.appendChild(img);
+    trailElements.push({ el: img, timeout: null });
+  }
+
+  function showTrailImage(x, y) {
+    const trail = trailElements[currentIndex % CONFIG.trailLength];
+    const el = trail.el;
+
+    // Clear previous fade timeout
+    if (trail.timeout) clearTimeout(trail.timeout);
+
+    // Position and show
+    const rotation = (Math.random() - 0.5) * CONFIG.maxRotation * 2;
+    el.src = CONFIG.images[currentIndex % CONFIG.images.length];
+    el.style.left = (x - 90) + 'px';
+    el.style.top = (y - 120) + 'px';
+    el.style.opacity = '1';
+    el.style.transform = `scale(1) rotate(${rotation}deg)`;
+    el.style.transition = 'transform 0.3s ease-out, opacity 0s';
+    el.style.zIndex = currentIndex;
+
+    // Schedule fade
+    trail.timeout = setTimeout(() => {
+      el.style.transition = `opacity ${CONFIG.fadeDuration}ms ease, transform ${CONFIG.fadeDuration}ms ease`;
+      el.style.opacity = '0';
+      el.style.transform = `scale(0.8) rotate(${rotation}deg)`;
+    }, CONFIG.fadeDelay);
+
+    currentIndex++;
+  }
+
+  document.addEventListener('mousemove', (e) => {
+    const dist = Math.hypot(e.clientX - lastX, e.clientY - lastY);
+    if (dist > CONFIG.threshold) {
+      showTrailImage(e.clientX, e.clientY);
+      lastX = e.clientX;
+      lastY = e.clientY;
+    }
+  });
+})();
+</script>
+</body>
+</html>

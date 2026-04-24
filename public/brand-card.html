@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Blueprint — Expendio Mx</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@300;400;600;700;800&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    background-color: #1A1A1A;
+    color: #F5EFE6;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+  
+  /* Logo SVG Override para forzar que respete el color de la marca si no trae fill nativo */
+  header svg {
+     fill: currentColor;
+  }
+</style>
+</head>
+<body class="min-h-screen text-gray-100 selection:bg-[#D93623]/30 selection:text-white">
+
+  <!-- Ambient Background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#D93623] opacity-5 blur-[120px]"></div>
+    <div class="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-[#333333] opacity-10 blur-[150px]"></div>
+    <div class="absolute -bottom-[20%] left-[20%] w-[60%] h-[40%] rounded-full bg-[#E85D04] opacity-5 blur-[100px]"></div>
+  </div>
+
+  <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 space-y-12">
+    
+    <!-- Header Section -->
+    <header class="animate-fade-in text-center space-y-6 max-w-4xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-4 py-2 glass-panel border-[#E85D04]/20 hover:border-[#E85D04]/50 transition-colors" style="border-radius: 1rem">
+        <span class="w-2 h-2 rounded-full bg-[#D93623] animate-pulse shadow-[0_0_10px_#D93623]"></span>
+        <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Cervecería / Bar</span>
+      </div>
+      
+      <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-500" style="font-family: 'Bebas Neue', sans-serif; padding-bottom: 8px;">Expendio Mx</h1>
+
+      <p class="text-xl lg:text-2xl text-gray-400 font-light tracking-wide max-w-2xl mx-auto leading-relaxed">Cerveza Helada, Rica Botana y Nostalgia.</p>
+    </header>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-auto">
+      
+      <!-- Brand Vision (Spans 8 cols) -->
+      <div class="md:col-span-8 glass-panel p-8 lg:p-10 relative overflow-hidden group animate-fade-in delay-1" style="border-radius: 1rem">
+        <div class="absolute inset-0 bg-gradient-to-br from-[#D93623]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+        <div class="relative z-10 flex flex-col h-full justify-center">
+          <div class="mb-6">
+            <div class="w-12 h-12 bg-[#E85D04]/10 flex items-center justify-center mb-6 border border-[#E85D04]/20" style="border-radius: calc(1rem / 2)">
+              <i data-lucide="target" class="w-6 h-6 text-[#E85D04]"></i>
+            </div>
+            <h2 class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-3">Strategic Vision</h2>
+            <p class="text-3xl lg:text-4xl font-bold leading-tight text-white mb-6" style="font-family: 'Bebas Neue', sans-serif;">
+              "Ser el refugio urbano donde la nostalgia se encuentra con la cerveza helada."
+            </p>
+          </div>
+          <p class="text-gray-400 text-lg leading-relaxed max-w-2xl">Expendio Mx es una cervecería popular que revive la camaradería de barrio con un toque de nostalgia. Somos el punto de encuentro para disfrutar de cerveza siempre helada, botanas auténticas y la banda sonora de los buenos tiempos.</p>
+        </div>
+      </div>
+
+      <!-- Typography (Spans 4 cols) -->
+      <div class="md:col-span-4 glass-panel p-8 lg:p-10 flex flex-col justify-between animate-fade-in delay-1" style="border-radius: 1rem">
+        <div>
+          <div class="w-12 h-12 bg-[#FFBA08]/10 flex items-center justify-center mb-6 border border-[#FFBA08]/20" style="border-radius: calc(1rem / 2)">
+            <i data-lucide="type" class="w-6 h-6 text-[#FFBA08]"></i>
+          </div>
+          <h2 class="text-xs uppercase tracking-widest text-gray-500 font-bold mb-6">Typography</h2>
+        </div>
+        <div class="space-y-8">
+          <div>
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Heading (Display)</div>
+            <div class="text-5xl text-white tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">Aa</div>
+            <div class="text-sm font-medium mt-2 text-[#FFBA08]">Bebas Neue</div>
+          </div>
+          <div class="pt-4 border-t border-white/5">
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider mb-2">Body (Readable)</div>
+            <div class="text-3xl text-white" style="font-family: 'Montserrat', sans-serif;">Aa Bb Cc</div>
+            <div class="text-sm font-medium mt-2 text-gray-400">Montserrat</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Palette (Spans 12 cols) -->
+      <div class="md:col-span-12 glass-panel p-8 lg:p-10 animate-fade-in delay-2" style="border-radius: 1rem">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 bg-[#D93623]/10 flex items-center justify-center border border-[#D93623]/20" style="border-radius: calc(1rem / 2)">
+                <i data-lucide="palette" class="w-5 h-5 text-[#D93623]"></i>
+              </div>
+              <h2 class="text-xs uppercase tracking-widest text-gray-400 font-bold">Color System</h2>
+            </div>
+          </div>
+          <span class="text-[10px] text-gray-500 uppercase tracking-widest">Click to Copy</span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-4 lg:gap-6">
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#D93623')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #D93623; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">primary</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#D93623</div>
+            </div>
+          </div>
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#333333')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #333333; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">secondary</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#333333</div>
+            </div>
+          </div>
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#E85D04')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #E85D04; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">accent</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#E85D04</div>
+            </div>
+          </div>
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#FFBA08')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #FFBA08; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">accentWarm</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#FFBA08</div>
+            </div>
+          </div>
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#1A1A1A')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #1A1A1A; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">background</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#1A1A1A</div>
+            </div>
+          </div>
+          
+          <div class="group cursor-pointer" onclick="navigator.clipboard.writeText('#F5EFE6')">
+            <div class="h-28 lg:h-32 w-full shadow-inner border border-white/10 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] relative overflow-hidden" style="background-color: #F5EFE6; border-radius: calc(1rem / 1.5)">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <div class="mt-4 text-center">
+              <div class="text-[10px] uppercase tracking-widest text-gray-500 font-bold">text</div>
+              <div class="text-sm font-mono text-white mt-1 group-hover:text-[#D93623] transition-colors">#F5EFE6</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Services (Spans 12 cols) -->
+      <div class="md:col-span-12 glass-panel p-8 lg:p-10 animate-fade-in delay-3" style="border-radius: 1rem">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-[#E85D04]/10 flex items-center justify-center border border-[#E85D04]/20" style="border-radius: calc(1rem / 2)">
+            <i data-lucide="layers" class="w-5 h-5 text-[#E85D04]"></i>
+          </div>
+          <h2 class="text-xs uppercase tracking-widest text-gray-400 font-bold">Core Services</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+    <div class="group relative overflow-hidden bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-all duration-500 hover:border-[#E85D04]/50 hover:-translate-y-1" style="border-radius: 1rem">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#D93623]/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-[#E85D04]/20"></div>
+      <h4 class="text-lg font-bold text-white mb-2 font-heading tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">🍻 Cerveza Siempre Helada</h4>
+      <p class="text-sm text-gray-400 mb-4 leading-relaxed">Una selección curada de cervezas nacionales e importadas, servidas siempre en su punto más frío y refrescante.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Lager</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Artesanal</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">De barril</span>
+      </div>
+    </div>
+  
+    <div class="group relative overflow-hidden bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-all duration-500 hover:border-[#E85D04]/50 hover:-translate-y-1" style="border-radius: 1rem">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#D93623]/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-[#E85D04]/20"></div>
+      <h4 class="text-lg font-bold text-white mb-2 font-heading tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">🌶️ Botanas para Compartir</h4>
+      <p class="text-sm text-gray-400 mb-4 leading-relaxed">Desde clásicos de cantina hasta creaciones de la casa, nuestras botanas están diseñadas para acompañar cada trago y cada plática.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Tostadas</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Salsas</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Papas</span>
+      </div>
+    </div>
+  
+    <div class="group relative overflow-hidden bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-all duration-500 hover:border-[#E85D04]/50 hover:-translate-y-1" style="border-radius: 1rem">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-[#D93623]/10 rounded-full blur-3xl -mr-10 -mt-10 transition-all group-hover:bg-[#E85D04]/20"></div>
+      <h4 class="text-lg font-bold text-white mb-2 font-heading tracking-tight" style="font-family: 'Bebas Neue', sans-serif;">🎶 Música y Ambiente</h4>
+      <p class="text-sm text-gray-400 mb-4 leading-relaxed">Creamos la atmósfera perfecta con una banda sonora que te transporta a otros tiempos. Un lugar para conversar, reír y crear recuerdos.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Rock Clásico</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Vinilos</span><span class="text-[10px] uppercase tracking-wider font-bold px-3 py-1 bg-[#D93623]/20 text-[#E85D04] border border-[#D93623]/30" style="border-radius: calc(1rem / 2)">Buen Ambiente</span>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+
+      <!-- Cinematic Scenes (Spans 12 cols) -->
+      <div class="md:col-span-12 glass-panel p-8 lg:p-10 animate-fade-in delay-3 border border-[#D93623]/20 relative overflow-hidden" style="border-radius: 1rem">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#D93623]/5 rounded-full blur-3xl -mr-20 -mt-20"></div>
+        <div class="flex items-center justify-between mb-8 relative z-10">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-[#D93623]/10 flex items-center justify-center border border-[#D93623]/20" style="border-radius: calc(1rem / 2)">
+              <i data-lucide="film" class="w-5 h-5 text-[#D93623]"></i>
+            </div>
+            <h2 class="text-xs uppercase tracking-widest text-gray-300 font-bold">Cinematic Prompts</h2>
+          </div>
+          <span class="px-4 py-1.5 bg-[#D93623]/10 text-[#D93623] text-[10px] font-black uppercase tracking-widest border border-[#D93623]/20" style="border-radius: 1rem">Nano Banana Ready</span>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
+          
+    <div class="relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-6 group hover:bg-white/10 transition-all duration-500" style="border-radius: 1rem">
+      <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#D93623] to-[#FFBA08] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 flex items-center justify-center text-[#E85D04] bg-[#D93623]/20" style="border-radius: calc(1rem / 2)">
+          <i data-lucide="video" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white font-heading" style="font-family: 'Bebas Neue', sans-serif;">Scene 01: El Ritual de la Cerveza</h4>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Cinematic Prompt</span>
+          <p class="text-sm text-gray-300 bg-black/40 p-4 border border-white/5 font-mono leading-relaxed shadow-inner" style="border-radius: calc(1rem / 1.5)">Cinematic slow-motion shot, macro lens. A bartender's hands expertly tilt a chilled, branded glass mug. Golden lager beer is poured from a tap, creating a perfect, frothy head. Condensation drips down the glass. The background is dark and blurry, with warm bokeh lights from the bar. The bar's red neon logo is softly reflected on the glass surface. Hyper-realistic, 8K, dramatic lighting, film grain.</p>
+        </div>
+        <div class="pt-2">
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Motion Guidance</span>
+          <p class="text-sm text-[#FFBA08] flex items-center gap-2">
+            <i data-lucide="play-circle" class="w-4 h-4"></i> Slow-motion pull back from the glass to reveal the lively but intimate bar atmosphere.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-6 group hover:bg-white/10 transition-all duration-500" style="border-radius: 1rem">
+      <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#D93623] to-[#FFBA08] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 flex items-center justify-center text-[#E85D04] bg-[#D93623]/20" style="border-radius: calc(1rem / 2)">
+          <i data-lucide="video" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white font-heading" style="font-family: 'Bebas Neue', sans-serif;">Scene 02: Nostalgia Sonora</h4>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Cinematic Prompt</span>
+          <p class="text-sm text-gray-300 bg-black/40 p-4 border border-white/5 font-mono leading-relaxed shadow-inner" style="border-radius: calc(1rem / 1.5)">Medium shot, handheld feel. A group of diverse friends in their late 20s/early 30s are laughing around a rustic wooden table. The table is filled with beer mugs and plates of botanas. In the background, a vinyl record is spinning on a turntable, softly out of focus. The lighting is warm and golden, with atmospheric lens flares. The focus racks from the laughing faces to the spinning record. Moody, authentic, cinematic.</p>
+        </div>
+        <div class="pt-2">
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Motion Guidance</span>
+          <p class="text-sm text-[#FFBA08] flex items-center gap-2">
+            <i data-lucide="play-circle" class="w-4 h-4"></i> A subtle zoom-in on the spinning record, with the sounds of laughter and music blending together.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/10 p-6 group hover:bg-white/10 transition-all duration-500" style="border-radius: 1rem">
+      <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#D93623] to-[#FFBA08] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-8 h-8 flex items-center justify-center text-[#E85D04] bg-[#D93623]/20" style="border-radius: calc(1rem / 2)">
+          <i data-lucide="video" class="w-4 h-4"></i>
+        </div>
+        <h4 class="text-lg font-bold text-white font-heading" style="font-family: 'Bebas Neue', sans-serif;">Scene 03: El Sabor del Recuerdo</h4>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Cinematic Prompt</span>
+          <p class="text-sm text-gray-300 bg-black/40 p-4 border border-white/5 font-mono leading-relaxed shadow-inner" style="border-radius: calc(1rem / 1.5)">A dynamic, quick-cut montage. Close-up of hands preparing a 'tostada' with fresh ingredients. A shot of sizzling food on a grill. A close-up of a hand sprinkling chili powder over papas fritas. A shot of someone taking a satisfying bite of a taco. The final shot is a top-down view of a table full of different colorful botanas and beers. Vibrant colors, sharp focus, energetic editing style.</p>
+        </div>
+        <div class="pt-2">
+          <span class="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Motion Guidance</span>
+          <p class="text-sm text-[#FFBA08] flex items-center gap-2">
+            <i data-lucide="play-circle" class="w-4 h-4"></i> Quick cuts synchronized to an upbeat, retro rock music track.
+          </p>
+        </div>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+
+      <!-- Meta Info (Spans 12 cols) -->
+      <div class="md:col-span-12 flex flex-wrap gap-4 animate-fade-in delay-3 pb-10">
+        <div class="glass-panel px-8 py-5 flex-1 min-w-[200px] flex items-center gap-4" style="border-radius: calc(1rem / 1.5)">
+          <i data-lucide="mic" class="w-5 h-5 text-gray-500"></i>
+          <div>
+            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Brand Tone</div>
+            <div class="text-sm font-bold text-white">Cercano, nostálgico, auténtico y sin pretensiones. Hablamos como un buen amigo que te invita una cerveza.</div>
+          </div>
+        </div>
+        <div class="glass-panel px-8 py-5 flex-1 min-w-[200px] flex items-center gap-4" style="border-radius: calc(1rem / 1.5)">
+          <i data-lucide="fingerprint" class="w-5 h-5 text-gray-500"></i>
+          <div>
+            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Core DNA</div>
+            <div class="text-sm font-bold text-white">Camaradería, Nostalgia, Calidad, Sencillez</div>
+          </div>
+        </div>
+        <div class="glass-panel px-8 py-5 flex-1 min-w-[200px] flex items-center gap-4" style="border-radius: calc(1rem / 1.5)">
+          <i data-lucide="map-pin" class="w-5 h-5 text-[#E85D04]"></i>
+          <div>
+            <div class="text-[10px] text-gray-500 uppercase tracking-widest mb-1">Location</div>
+            <div class="text-sm font-bold text-white">México</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+    // Tiny interaction for color copying
+    document.querySelectorAll('.cursor-pointer').forEach(el => {
+      el.addEventListener('click', function() {
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', 'check');
+        icon.className = 'absolute inset-0 m-auto w-8 h-8 text-white opacity-0 transition-opacity duration-300';
+        this.querySelector('.relative').appendChild(icon);
+        lucide.createIcons();
+        setTimeout(() => icon.classList.remove('opacity-0'), 10);
+        setTimeout(() => {
+          icon.classList.add('opacity-0');
+          setTimeout(() => icon.remove(), 300);
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>

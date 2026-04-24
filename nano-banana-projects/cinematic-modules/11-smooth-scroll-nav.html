@@ -1,0 +1,242 @@
+<!--
+  MODULE 11: Smooth Scroll Navigation
+  Fixed nav that highlights sections, morphs on scroll, smooth scrolling.
+  Essential for single-page cinematic sites.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smooth Scroll Nav</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: #0a0a0a; }
+
+  /* === Navigation === */
+  .cinema-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .cinema-nav.scrolled {
+    padding: 12px 40px;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-logo {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+
+  .nav-logo span {
+    color: #6366f1;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: system-ui;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: white;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .nav-links a.active::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    padding: 10px 24px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #a5b4fc !important;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s !important;
+  }
+
+  .nav-cta:hover {
+    background: rgba(99, 102, 241, 0.25) !important;
+  }
+
+  .nav-cta::after { display: none !important; }
+
+  /* === Sections === */
+  .section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 40px;
+    position: relative;
+  }
+
+  .section h2 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    color: white;
+    text-align: center;
+  }
+
+  .section p {
+    font-family: system-ui;
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    max-width: 500px;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  /* Section divider */
+  .section-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    margin: 24px auto 0;
+  }
+
+  /* Mobile hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-hamburger span {
+    width: 24px;
+    height: 2px;
+    background: white;
+    transition: all 0.3s;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+    z-index: 1001;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<nav class="cinema-nav" id="nav">
+  <a href="#hero" class="nav-logo">Cinema<span>Sites</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero" data-section="hero" class="active">Home</a></li>
+    <li><a href="#about" data-section="about">About</a></li>
+    <li><a href="#services" data-section="services">Services</a></li>
+    <li><a href="#portfolio" data-section="portfolio">Portfolio</a></li>
+    <li><a href="#contact" data-section="contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="section" id="hero" style="background:linear-gradient(135deg,#0f0c29,#302b63,#24243e)">
+  <div><h2>Welcome Home</h2><p>This is the hero section with full viewport height and smooth scroll navigation.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="about">
+  <div><h2>About Us</h2><p>Learn about our mission to create the most cinematic web experiences in the industry.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="services" style="background:rgba(255,255,255,0.02)">
+  <div><h2>Our Services</h2><p>Brand analysis, scene generation, cinematic builds, and seamless deployment.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="portfolio">
+  <div><h2>Portfolio</h2><p>Browse our collection of premium cinematic websites built for real clients.</p><div class="section-divider"></div></div>
+</div>
+
+<div class="section" id="contact" style="background:rgba(255,255,255,0.02)">
+  <div><h2>Get In Touch</h2><p>Ready to transform your online presence? Let's build something extraordinary.</p><div class="section-divider"></div></div>
+</div>
+
+<script>
+(function() {
+  const nav = document.getElementById('nav');
+  const links = document.querySelectorAll('.nav-links a[data-section]');
+  const sections = document.querySelectorAll('.section');
+  const progress = document.getElementById('scrollProgress');
+
+  // Scroll state
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+    // Nav morph
+    nav.classList.toggle('scrolled', scrollY > 50);
+
+    // Progress bar
+    progress.style.width = ((scrollY / maxScroll) * 100) + '%';
+
+    // Active section detection
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 200;
+      if (scrollY >= top) current = section.id;
+    });
+
+    links.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === current);
+    });
+  });
+})();
+</script>
+</body>
+</html>

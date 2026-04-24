@@ -1,0 +1,184 @@
+1:Hello, hope you are doing well. So, in this video, I want to talk a bit about so
+2:mething I built over the weekend. This is kind of the browser tool for AI agents
+3:. And yeah, I think it's just really good and I'm going to make it open source. 
+4:So, you can just install it like NPM install G surf agent. I call it that. So, b
+5:asically, today I just want to show you what this can do because I was really su
+6:rprised how well it works. So, let's say we just open up Cloud Code here for exa
+7:mple. We go to I logged into my Discord. And this is the advantage of this, we d
+8:on't really need any APIs, right? So, I'm logged into my Discord. I can just say
+9: navigate to the Bossy server, read what's happening in general. So, now we shou
+10:ld have all the tools after we did the NPM install surf agent. And I did some cu
+11:stom addition things to this package here. So, we can actually navigate Discord 
+12:with this now. So, we should be able now, you can see we are navigating in the b
+13:ackground here into the server, right? I guess we can just go here. We can check
+14: the general chat like we said. And we should be able to get all the context fro
+15:m the Discord, right? You can see we are looking up the channels. Now, we're goi
+16:ng to general, right? General chat. And now we can grab all the context from thi
+17:s server and use it for whatever you want. So, it's super easy to use. You can s
+18:ee here now, we are kind of doing a recon. You can see in the background, we are
+19: scanning all the chats here like the last 200 messages. And now we can use this
+20: as context. So, this could be on your own server if you want to catch up or som
+21:ething. And you can see here's what's going on in the general chat. You can see 
+22:Discord worms, scam discussion, AI music generation. Yeah, you get the point. So
+23:, this is what I've been building and I'm going to show you a few things we can 
+24:use this for today. And you can kind of adapt it to whatever you want to. And li
+25:ke I said, this is open source now. So, you can just use it for free. So, let me
+26: show you a few things we can do with this. But before we do that, I want to tel
+27:l you about today's sponsor, Freebuf. So, a quick word from today's sponsor and 
+28:that is going to be Freebuf. So, coding agents these days are 20 100 $200 a mont
+29:h depending on your usage. But Freebuf is just free. So, this is funded by text 
+30:ads, no subscriptions, and they don't even trade on your code. So, I want to sho
+31:w you how to install this now. It's super easy. So, all you have to do, go to fr
+32:eebuf.com, copy this, NPM G is install Freebuf. Just go to your terminal and jus
+33:t run this, right? Should be super quick. Perfect, we are in. So, I can just say
+34:, "Hello." And one thing they have, you can see here if you zoom in a bit, you c
+35:an see they have something called suggested follow-up. So, we can do explore pro
+36:jects, new feature, or code review. This is pretty cool. I kind of like this. Bu
+37:t what I want to do is connect this to my ChatGPT subscription. So, if I do {sla
+38:sh} and I do connect, you can see connect to your ChatGPT account. And you can s
+39:ee I can confirm this. Yeah, continue. Connected, perfect. If I go back here now
+40:, ChatGPT connected. And now you can see I can do plan, create a plan with GPT 5
+41:.4. So, you can see I just launched create a plan to use FFmpeg to remove the si
+42:lence part of an MP4 file. Okay, so you can see we got a plan from Freebuf. Now,
+43: I'm just going to say, "Yeah, I want to implement the plan." And let's see if t
+44:his works. Okay, so that was done, perfect. So, now let's test it out now. So, I
+45: have this video here. It's how long is it? 5 minutes long. So, let's just run t
+46:his now. So, we're going to do the Python remove silence. We're going to path. L
+47:et's see how this goes now. So, we're going to speed up FFmpeg, cutting 45 segme
+48:nts. Okay, perfect. No silence. So, we went from 5 minutes to 2:20. Let's have a
+49: quick listen. So, all you have to do, go to freebuf.com. Yeah, that works. So, 
+50:that was super easy, right? So, now we created this tool. Perfect. So, yeah, I w
+51:ould just go to freebuf.com. Go check it out. I'm going to leave a link in the d
+52:escription so you can try this out. And yeah, a big thanks to Freebuf for sponso
+53:ring this segment of the video. Now, let's go back to the project. Okay, like I 
+54:said, you can see I have done this as an NPM package now. You can see we only ha
+55:ve to do like NPM surf agent or something like that. So, let me just grab this h
+56:ere now. And let's just start a new. So, we have like a new terminal here on Clo
+57:ud Code. And we have like a fresh cursor empty repo here. So, let's just start w
+58:ith and let's just do the NPM install, right? And now I'm going to see show you 
+59:how easy it is to get this set up now. So, we just going to install the package 
+60:with NPM install. And you can see Yeah. This is installed. And now I'm just goin
+61:g to tell it uh Yeah, it's a browser automation API for AI agents using Chrome C
+62:DP. Let me install it globally. Uh yeah, that is fine. We didn't really need to 
+63:install it globally. But it's fine. We can use it for other things, too. Uh but 
+64:now I just want to say do you know how to use it, right? Yeah, so we kind of rea
+65:d all the information. So, now we can just start this. So, I'm just going to say
+66: uh go to Hacker News or something like that, right? That should be enough. We a
+67:re kind of already running on this port now. So, let's see if that's going to be
+68: an issue. We're just going to do surf agent start. You can see we are already r
+69:unning on this port. Yeah, but that is fine. So, now it should just going to pic
+70:k a different port and we can open up this, right? And now we are inside here. S
+71:o, you can see we went to Hacker News, perfect. So, let me give you some differe
+72:nt instructions here of what we can do. So, you can see it's using reading all t
+73:he information here. You can see we have DaVinci Resolve. This is the top post. 
+74:We got all the posts. You want me to click any of these articles. So, let's say 
+75:we say click into number 10, distributed duck DB. instance. So, let's just say c
+76:lick to 10. And this should be able to do this now. Yeah, we got right right int
+77:o the open duck DB, right? Perfect. So, let's just go back here and let's just l
+78:eave Hacker News because now I want to show you that we can actually do Google S
+79:heets with this. This is pretty cool. So, now I'm just going to say, "Yeah, you 
+80:can see it kind of read the Google Sheets." Uh let's do like a quick research pr
+81:oject now. Let's just try to do use surf agents to find all the API prices for O
+82:pus 4.6, Sonnet 4.6, GPT 4.4, and Gemini 4.1. Uh then enter these into Google Sh
+83:eets, right? So, let's see if we can do this challenge here now. So, it needs to
+84: go out, find all the prices, right? You can see it's starting. So, it should be
+85: pretty quick because we are using this recon call to you can see it kind of spe
+86:eding up here to find uh everything it needs to click uh autonomous. So, you can
+87: see now we went to Claude, we went to OpenAI, we went to Gemini, and we are loo
+88:king for those prices. And the final thing we wanted to do was to go to Google S
+89:heets, fill in all this information. You can see we are probably just looking th
+90:is up here now. Yeah, and it probably wants to go back to Google Sheets once we 
+91:have all the information. And we can start putting this into uh the spreadsheets
+92:. So, let's see if we can do that. Just give it some time here. And now you can 
+93:see we are going back to Google Sheets. And now let's see if it can actually nav
+94:igate this. You can see we are trying now. You can see if we go here, we are usi
+95:ng so commands, right? Value A1. Now, it's going to try to figure out how this w
+96:orks. You can see we could put A1 down there. And let's just see if it figures t
+97:his out now. And here you can see it goes like it puts in all the rows here. So,
+98: we do model, input, output. Hopefully now you can see it have faster. This is s
+99:kips to Opus. Uh yeah, and Sonnet 5.4. I guess we can do a bit like this. And ye
+100:ah, maybe I messed it up now. GPT 5.4 fills in all the information. And it shoul
+101:d do Gemini 3.1 Pro. Yeah, you can see this is fully autonomous. It kind of lear
+102:ned how to operate sheets. And now we can do this things autonomous here. We can
+103: also maybe ask it to do a graph or something. Let's do that. Okay, so let's jus
+104:t ask for a graph of the pricing. Just for fun, let's see if we can do this. So,
+105: this kind of opens up a few more things because we can go out, do research. Wha
+106:t happened here now? An error record occurred. Okay, let's see if we can fix it.
+107: But what I wanted to say is that we can go out, do some research, and go back, 
+108:put everything into like a spreadsheet or something like that. Do some statistic
+109:s and stuff like that. But one thing I got to say is that this is not this is no
+110:t headless. So, you need some setup like I have. I kind of have a Mac mini that 
+111:is running this and is able to use the browser, right? That is quite important. 
+112:So, this is not headless. I haven't looked at that yet. So, we just reloaded pag
+113:e. Now, let's see if we can start to work on the graph we asked for. As you can 
+114:see, it's missing actually a price here. But let's just see what happens. And ye
+115:ah, let's just let it run for a while here. Okay, so you can see it goes for ins
+116:ert. And let's see if it's going to pick chart here. And yeah, there you can see
+117: we have it. We have the chart here, right? 1 million per token. We are kind of 
+118:missing this for Gemini 3.5 Pro. 3.1 Pro. But yeah, we got the chart we asked fo
+119:r. Okay, that's pretty good. Nice. And it's going to yeah, that's fine. And I th
+120:ink we're just going to stop it here. And you can see it is possible to operate 
+121:like Google Sheets or something by using this system, surf agent here. But of co
+122:urse, the most uh useful thing is that we can now skip APIs, right? Because if y
+123:ou have like a a station that can run that doesn't need has to be headless, you 
+124:can just log in to your page here. So, I'm logged in on x.com here, and I can ju
+125:st say something like, "We are on x.com explore searching for the latest news on
+126: Claude Mitous, right?" And this should now be able to to kind of adapt to the p
+127:age we are on because we are running this recon uh command that kind of uh maps 
+128:everything that is on the page, and we can quickly navigate to those elements, r
+129:ight? So, now we're just going to look up this, and we can just recon the page. 
+130:We navigate everything on the page, and we can start, yeah, doing stuff on the p
+131:age autonomously by using SurfAgent. So, we went to explore, right? I said we wa
+132:nted to search for uh Claude Co- Claude Mitous. So, let's see if we put that int
+133:o the search field. Yeah, Claude Mitous, we are searching for that now, and we c
+134:an kind of look up Uh yeah, we have some small issues here, but now we can uh fi
+135:nd context on X, right? We go to latest, and we start mapping out the latest new
+136:s on Claude Mitous, and we can kind of build up like a context here. And if you 
+137:wanted to do something more with Yeah, that context, because we can read everyth
+138:ing on the page, and you can see we can navigate, we can go to users, we can wri
+139:te post and everything. So, let's say uh let's try to build a post here on Claud
+140:e Mitous, and yeah, see if we can make it work. So, let's just do create a creat
+141:ive post on Claude Mitous, lower capital, short, and post it. So, let's see if w
+142:e can adapt to that request here on X. We go to post, right? And we should be ab
+143:le to find this straight away using kind of the recon feature, and we should be 
+144:able to just uh insert uh the post here, and just click post. So, yeah, you can 
+145:even automate uh stuff like this if you wanted to. Uh I already done my experime
+146:nts on this, so I'm not using this so much for this now. You can see here, we pu
+147:t everything in, and we're just going to click post, right? &gt;&gt; [snorts] &g
+148:t;&gt; And yeah, super easy, and it works pretty smooth. So, what I was most imp
+149:ressed by uh creating this over the weekend is the speed, because it's gotten ju
+150:st so much quicker when we actually run this recon uh command first to kind of u
+151:h map everything that is on the page, right? So, let's just do let's go to YouTu
+152:be, find videos on Claude Mitous. It should be able to just uh adapt to that ver
+153:y quick. Just go to youtube.com, search query Claude Mitous, and you can see uh 
+154:yeah, we find some videos on this, and it should also be able to just grab the t
+155:ranscription of a video. Let's go to Love Levels video here. Let's go to Love Le
+156:vel uh grab transcript and write a summary, something like this, right? So, let'
+157:s see if we can do that. It should be able to do that, I think, just because of 
+158:the mapping we do with the recon. You can see we are going straight into the vid
+159:eo here, and we are playing the video, but we should be looking for the transcri
+160:pt, right? You can see we are also scrolling, so it's very good at scrolling, an
+161:d it says show transcript, and that should be here, right? On the right side, ye
+162:ah. And it should be able to grab the full transcript here, and we can use that 
+163:for context, like I said earlier, if we wanted to. Got the full tran- transcript
+164:, uh the core finding, Claude Mitous preview can autonomously find and exploit z
+165:ero-day vulnerabilities. Pretty interesting model. So, yeah, I think I kind of h
+166:ave showed just a small bit of what we can do now with this automation, and I ju
+167:st started with it. So, I haven't really explored all the possibilities, but uh 
+168:it should be open source, so I made it like a npm package, but you can also go t
+169:o the GitHub if you wanted to check it out, right? And I'm going to leave all th
+170:e links in the description. So, here you can read a bit more about how it works,
+171: and how you can adapt it to your use case. So, yeah, hope you will check it out
+172:. And that's what I want to share today, and I'm going to come back with more vi
+173:deos on this and how we can use it to set up these automated pipelines. Uh I've 
+174:gotten into doing some small passive incomes now with these pipelines, so this f
+175:its very well to some testing I have running at the moment. So, yeah, go check i
+176:t out, and don't forget to check out Freebird, that is also a link in the descri
+177:ption. So, yeah, hope you enjoyed it, and hope you will get some use of this. Sh
+178:are it, leave some requests uh on the uh GitHub if you have any things we want t
+179:o upgrade, because this is not perfect. I just want to say that, and we have som
+180:e Claude MD files here, some agent.md, and there's a lot of things we can improv
+181:e, but uh I've been doing some QA testing, but I can't do everything alone. So, 
+182:if you have any issues, pull request, just uh yeah, make it happen. So, yeah, th
+183:ank you for tuning in. Like I said, check out the links in the description, and 
+184:have a great day.

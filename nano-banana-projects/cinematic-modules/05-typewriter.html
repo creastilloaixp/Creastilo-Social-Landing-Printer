@@ -1,0 +1,190 @@
+<!--
+  MODULE 05: Typewriter Effect
+  Text types out character by character with blinking cursor.
+  Multiple variants: standard, glitch, multi-line.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Typewriter Effect</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 200vh; }
+
+  .type-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 60px;
+  }
+
+  /* Standard typewriter */
+  .typewriter {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #6366f1;
+    animation: blink-caret 0.8s step-end infinite;
+    max-width: 100%;
+  }
+
+  @keyframes blink-caret {
+    50% { border-color: transparent; }
+  }
+
+  /* Multi-line typewriter */
+  .typewriter-multi {
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 16px;
+    color: #a5f3fc;
+    line-height: 1.8;
+    max-width: 600px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 24px;
+  }
+
+  .typewriter-multi .line {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .typewriter-multi .line.typed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .typewriter-multi .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: #6366f1;
+    vertical-align: text-bottom;
+    animation: blink-caret 0.8s step-end infinite;
+  }
+
+  /* Code-style typewriter */
+  .type-code {
+    background: #111;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 24px 32px;
+    max-width: 700px;
+    width: 100%;
+  }
+
+  .type-code .line-number {
+    color: rgba(255,255,255,0.2);
+    margin-right: 16px;
+    user-select: none;
+    font-size: 13px;
+  }
+
+  .type-code .keyword { color: #c084fc; }
+  .type-code .string { color: #86efac; }
+  .type-code .function { color: #93c5fd; }
+  .type-code .comment { color: rgba(255,255,255,0.3); font-style: italic; }
+
+  .label {
+    font-family: system-ui;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="type-section">
+  <!-- Standard single-line typewriter -->
+  <div style="text-align:center">
+    <div class="label">Hero Tagline</div>
+    <div class="typewriter" data-typewriter data-speed="60" data-text="Building cinematic websites that convert."></div>
+  </div>
+
+  <!-- Multi-line typewriter -->
+  <div style="text-align:center">
+    <div class="label">Brand Story</div>
+    <div class="typewriter-multi" data-typewriter-multi>
+      <div class="line" data-line="Founded in 2020, we set out to"></div>
+      <div class="line" data-line="redefine what a website could be."></div>
+      <div class="line" data-line=""></div>
+      <div class="line" data-line="Not just pages — but experiences."></div>
+      <div class="line" data-line="Not just content — but cinema."></div>
+    </div>
+  </div>
+
+  <!-- Code typewriter -->
+  <div>
+    <div class="label">Implementation</div>
+    <div class="type-code typewriter-multi" data-typewriter-multi>
+      <div class="line" data-line='<span class="comment">// Initialize cinematic agent</span>'></div>
+      <div class="line" data-line='<span class="keyword">const</span> agent = <span class="keyword">new</span> <span class="function">CinematicSites</span>({'></div>
+      <div class="line" data-line='&nbsp;&nbsp;brand: <span class="string">"analyzed"</span>,'></div>
+      <div class="line" data-line='&nbsp;&nbsp;scene: <span class="string">"generated"</span>,'></div>
+      <div class="line" data-line='&nbsp;&nbsp;quality: <span class="string">"premium"</span>'></div>
+      <div class="line" data-line="});"></div>
+      <div class="line" data-line=""></div>
+      <div class="line" data-line='<span class="keyword">await</span> agent.<span class="function">deploy</span>();'></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Single-line typewriter
+  document.querySelectorAll('[data-typewriter]').forEach(el => {
+    const text = el.dataset.text || '';
+    const speed = parseInt(el.dataset.speed) || 50;
+    el.textContent = '';
+    let i = 0;
+
+    function startTyping() {
+      if (i < text.length) {
+        el.textContent += text[i];
+        i++;
+        setTimeout(startTyping, speed);
+      }
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { startTyping(); obs.unobserve(el); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  });
+
+  // Multi-line typewriter
+  document.querySelectorAll('[data-typewriter-multi]').forEach(container => {
+    const lines = container.querySelectorAll('.line');
+    let currentLine = 0;
+
+    function typeLine() {
+      if (currentLine >= lines.length) return;
+      const line = lines[currentLine];
+      line.classList.add('typed');
+      line.innerHTML = line.dataset.line + (currentLine === lines.length - 1 ? '<span class="cursor"></span>' : '');
+      currentLine++;
+      setTimeout(typeLine, 400);
+    }
+
+    const obs = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) { typeLine(); obs.unobserve(container); }
+    }, { threshold: 0.3 });
+    obs.observe(container);
+  });
+})();
+</script>
+</body>
+</html>

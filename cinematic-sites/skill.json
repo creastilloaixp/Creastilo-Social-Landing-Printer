@@ -1,0 +1,48 @@
+{
+  "name": "cinematic-sites",
+  "displayName": "Cinematic Sites Builder",
+  "description": "Build $15K-quality cinematic websites on autopilot: Brand Analysis → Scene Generation → Website Build → Deploy",
+  "version": "1.0.0",
+  "createdAt": "2026-04-01T00:00:00.000Z",
+  "sourceVideo": "https://www.youtube.com/watch?v=bUt1WpDlI6E",
+  "videoTitle": "This AI Agent Builds $15K Cinematic Websites on Autopilot (Claude Code + Nanobanana 2)",
+  "difficulty": "intermediate",
+  "learningTime": "30 minutes",
+  "triggers": [
+    "cinematic site",
+    "cinematic sites",
+    "sitio cinematográfico",
+    "website premium",
+    "landing cinematica",
+    "mejorar website",
+    "rebuild website",
+    "cinematic landing",
+    "hero animation"
+  ],
+  "tools": ["Bash", "Read", "Write", "WebFetch", "Vercel MCP"],
+  "useCases": [
+    "Transform an existing website into a premium cinematic experience",
+    "Build a scroll-driven hero animation from scratch",
+    "Create a client-ready demo site in minutes"
+  ],
+  "features": [
+    "Automated brand analysis from any URL",
+    "AI image generation (Nano Banana / Gemini)",
+    "AI video animation (Kling 3.0 via WaveSpeed)",
+    "Scroll-driven frame player",
+    "11 cinematic modules (accordion, kinetic text, glitch, etc.)",
+    "One-click Vercel deployment"
+  ],
+  "apis": {
+    "gemini": {
+      "model": "gemini-2.5-flash-image",
+      "envKey": "GEMINI_API_KEY",
+      "cost": "Free ($300 credit)"
+    },
+    "wavespeed": {
+      "model": "kwaivgi/kling-v2.1-i2v-pro",
+      "envKey": "WAVESPEED_API_KEY",
+      "cost": "$0.56-1.12 per video"
+    }
+  }
+}

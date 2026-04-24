@@ -1,0 +1,166 @@
+<!--
+  MODULE 02: Accordion Image Slider
+  Hover/click to expand panels — perfect for menus, portfolios, categories.
+  Fully responsive. Works with images or solid colors.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion Slider</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  .accordion-slider {
+    display: flex;
+    width: 100%;
+    height: 70vh;
+    min-height: 400px;
+    overflow: hidden;
+    gap: 4px;
+  }
+
+  .accordion-panel {
+    flex: 1;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 8px;
+  }
+
+  .accordion-panel:hover,
+  .accordion-panel.active {
+    flex: 5;
+  }
+
+  .accordion-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .accordion-panel:hover img {
+    transform: scale(1.05);
+  }
+
+  .panel-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: white;
+    transform: translateY(60%);
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .accordion-panel:hover .panel-overlay,
+  .accordion-panel.active .panel-overlay {
+    transform: translateY(0);
+  }
+
+  .panel-overlay h3 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .panel-overlay p {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.5;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .accordion-panel:hover .panel-overlay p,
+  .accordion-panel.active .panel-overlay p {
+    max-height: 200px;
+  }
+
+  /* Vertical number indicator */
+  .panel-number {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.15);
+    line-height: 1;
+  }
+
+  /* Mobile: vertical stack */
+  @media (max-width: 768px) {
+    .accordion-slider {
+      flex-direction: column;
+      height: auto;
+    }
+    .accordion-panel {
+      height: 120px;
+      transition: height 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .accordion-panel:hover,
+    .accordion-panel.active {
+      height: 350px;
+      flex: none;
+    }
+  }
+</style>
+</head>
+<body style="background:#0a0a0a;padding:40px;font-family:system-ui">
+
+<h2 style="color:white;text-align:center;margin-bottom:30px;font-size:32px">Explore Our Menu</h2>
+
+<div class="accordion-slider">
+  <div class="accordion-panel">
+    <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?w=600&q=80" alt="Panel 1">
+    <span class="panel-number">01</span>
+    <div class="panel-overlay">
+      <h3>Signature Ramen</h3>
+      <p>Rich tonkotsu broth simmered for 18 hours with chashu pork, seasoned egg, and fresh noodles.</p>
+    </div>
+  </div>
+  <div class="accordion-panel">
+    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=600&q=80" alt="Panel 2">
+    <span class="panel-number">02</span>
+    <div class="panel-overlay">
+      <h3>Spicy Miso</h3>
+      <p>Fiery miso base with ground pork, chili oil, corn, and butter for a warming kick.</p>
+    </div>
+  </div>
+  <div class="accordion-panel">
+    <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?w=600&q=80" alt="Panel 3">
+    <span class="panel-number">03</span>
+    <div class="panel-overlay">
+      <h3>Shoyu Classic</h3>
+      <p>Light soy-based broth with bamboo shoots, nori, and perfectly tender noodles.</p>
+    </div>
+  </div>
+  <div class="accordion-panel">
+    <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=600&q=80" alt="Panel 4">
+    <span class="panel-number">04</span>
+    <div class="panel-overlay">
+      <h3>Vegan Tantanmen</h3>
+      <p>Creamy sesame broth with crispy tofu, bok choy, and house-made chili crisp.</p>
+    </div>
+  </div>
+  <div class="accordion-panel">
+    <img src="https://images.unsplash.com/photo-1552611052-33e04de1b100?w=600&q=80" alt="Panel 5">
+    <span class="panel-number">05</span>
+    <div class="panel-overlay">
+      <h3>Cold Tsukemen</h3>
+      <p>Chilled noodles served with a rich, concentrated dipping broth on the side.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

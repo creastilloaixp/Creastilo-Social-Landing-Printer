@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creastilo - Flyers Digitales</title>
+    <!-- Importar la misma fuente que usamos en el proyecto -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b00;
+            --accent: #00e5ff;
+            --dark: #050505;
+        }
+        body {
+            margin: 0;
+            background-color: var(--dark);
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            gap: 2rem;
+            padding: 3rem;
+            overflow-x: auto;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .flyer-card {
+            width: 400px;
+            height: 700px;
+            flex-shrink: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(255,107,0,0.3);
+            box-shadow: 0 0 30px rgba(255,107,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .flyer-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.2) 40%, rgba(5,5,5,0.95) 100%);
+            z-index: 1;
+        }
+
+        .flyer-content {
+            position: relative;
+            z-index: 2;
+            padding: 2.5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        /* IDENTIDAD DE MARCA EXACTA */
+        .brand-header {
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+        .sub-logo {
+            font-size: 0.8rem;
+            color: #aaa;
+            letter-spacing: 5px;
+            margin-top: 5px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* TEXTOS PROMOCIONALES */
+        .promo-body {
+            text-align: center;
+        }
+        .module-tag {
+            font-family: 'Fira Code', monospace;
+            color: var(--accent);
+            font-size: 0.8rem;
+            background: rgba(0, 229, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 229, 255, 0.3);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2.4rem;
+            margin: 0 0 1rem 0;
+            line-height: 1.1;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+        }
+        .features {
+            text-align: left;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+        .features p {
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        .features p::before {
+            content: ">>";
+            color: var(--primary);
+            margin-right: 10px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* BOTÓN CTA */
+        .cta-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+        .cta-btn:hover {
+            background: var(--primary);
+            color: #000;
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        /* Asignar las imagenes generadas como fondo */
+        .bg-1 { background-image: url('./flyer-1-ecommerce.png'); }
+        .bg-2 { background-image: url('./flyer-2-agentes.png'); }
+        .bg-3 { background-image: url('./flyer-3-extraccion-datos.png'); }
+        .bg-4 { background-image: url('./flyer-4-software-medida.png'); }
+
+    </style>
+</head>
+<body>
+
+    <!-- FLYER 1: CAPTURA -->
+    <div class="flyer-card bg-1">
+        <div class="flyer-overlay"></div>
+        <div class="flyer-content">
+            <div class="brand-header">
+                <h1 class="logo">CREASTILO <span>X</span>PERIENCE</h1>
+                <div class="sub-logo">/ AI_SOFTWARE_LAB</div>
+            </div>
+            <div class="promo-body">
+                <span class="module-tag">MÓDULO: X-CAPTURE</span>
+                <h2>TIENDAS EN LÍNEA & FUNNELS</h2>
+                <div class="features">
+                    <p>Diseño Élite para alta conversión</p>
+                    <p>Catálogo 24/7 y pasarelas de pago</p>
+                    <p>Dominio y Hosting de arquitectura veloz</p>
+                </div>
+            </div>
+            <button class="cta-btn">INICIAR PROYECTO</button>
+        </div>
+    </div>
+
+    <!-- FLYER 2: AGENTES -->
+    <div class="flyer-card bg-2">
+        <div class="flyer-overlay"></div>
+        <div class="flyer-content">
+            <div class="brand-header">
+                <h1 class="logo">CREASTILO <span>X</span>PERIENCE</h1>
+                <div class="sub-logo">/ AI_SOFTWARE_LAB</div>
+            </div>
+            <div class="promo-body">
+                <span class="module-tag">MÓDULO: X-AGENTS</span>
+                <h2>AGENTES IA & BOTS CRM</h2>
+                <div class="features">
+                    <p>Automatización de WhatsApp Inteligente</p>
+                    <p>Integración nativa con Kommo CRM</p>
+                    <p>Agentes con memoria y contexto a largo plazo</p>
+                </div>
+            </div>
+            <button class="cta-btn">AUTOMATIZAR VENTAS</button>
+        </div>
+    </div>
+
+    <!-- FLYER 3: DATOS -->
+    <div class="flyer-card bg-3">
+        <div class="flyer-overlay"></div>
+        <div class="flyer-content">
+            <div class="brand-header">
+                <h1 class="logo">CREASTILO <span>X</span>PERIENCE</h1>
+                <div class="sub-logo">/ AI_SOFTWARE_LAB</div>
+            </div>
+            <div class="promo-body">
+                <span class="module-tag">MÓDULO: X-HARVESTER</span>
+                <h2>MINERÍA DE DATOS INTELIGENTE</h2>
+                <div class="features">
+                    <p>Scraping de alta velocidad y precisión</p>
+                    <p>Identificación de 'Gemas' de Inversión</p>
+                    <p>Ingesta directa a bases PostgreSQL</p>
+                </div>
+            </div>
+            <button class="cta-btn">DESPLEGAR EXTRACCIÓN</button>
+        </div>
+    </div>
+
+    <!-- FLYER 4: SOFTWARE -->
+    <div class="flyer-card bg-4">
+        <div class="flyer-overlay"></div>
+        <div class="flyer-content">
+            <div class="brand-header">
+                <h1 class="logo">CREASTILO <span>X</span>PERIENCE</h1>
+                <div class="sub-logo">/ AI_SOFTWARE_LAB</div>
+            </div>
+            <div class="promo-body">
+                <span class="module-tag">MÓDULO: X-DEV</span>
+                <h2>SOFTWARE FINTECH A MEDIDA</h2>
+                <div class="features">
+                    <p>Dashboards de control centralizados</p>
+                    <p>Sistemas contables doble-partida (NIF)</p>
+                    <p>Módulos de seguridad y autenticación</p>
+                </div>
+            </div>
+            <button class="cta-btn">CONSULTAR INGENIERÍA</button>
+        </div>
+    </div>
+
+</body>
+</html>

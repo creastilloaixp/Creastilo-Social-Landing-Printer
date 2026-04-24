@@ -1,0 +1,223 @@
+<!--
+  MODULE 01: Scroll-Driven Video Frame Player
+  The CORE module — maps extracted video frames to scroll position.
+  Creates the cinematic hero effect seen in premium $15K websites.
+
+  Usage:
+    - Place extracted frames in a /frames/ folder (frame-0000.jpg, frame-0001.jpg, etc.)
+    - Set TOTAL_FRAMES to match your frame count
+    - Adjust scrollHeight multiplier for scroll speed
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Video Player</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    height: 500vh; /* Controls scroll length — more = slower animation */
+  }
+
+  .hero-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .hero-scroll canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Optional: overlay content on top of the video */
+  .hero-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hero-overlay h1 {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: clamp(2rem, 6vw, 5rem);
+    color: white;
+    text-align: center;
+    text-shadow: 0 4px 30px rgba(0,0,0,0.7);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .hero-overlay h1.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Loading state */
+  .loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: system-ui;
+    font-size: 14px;
+    z-index: 100;
+    text-align: center;
+  }
+
+  .loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .loader-fill {
+    height: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: width 0.2s;
+    width: 0%;
+  }
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <div>Loading frames...</div>
+  <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+  <div id="loaderText" style="margin-top:8px;opacity:0.5">0%</div>
+</div>
+
+<div class="hero-scroll">
+  <canvas id="heroCanvas"></canvas>
+</div>
+
+<div class="hero-overlay">
+  <h1 id="heroTitle">Your Headline Here</h1>
+</div>
+
+<script>
+(function() {
+  const CONFIG = {
+    totalFrames: 60,           // Must match extracted frame count
+    framePrefix: 'frames/frame-',
+    frameExtension: '.jpg',
+    framePadding: 4,           // frame-0000, frame-0001, etc.
+    scrollMultiplier: 1,       // 1 = normal speed
+    showTitleAtPercent: 0.3    // Show title when 30% scrolled
+  };
+
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  const loader = document.getElementById('loader');
+  const loaderFill = document.getElementById('loaderFill');
+  const loaderText = document.getElementById('loaderText');
+  const heroTitle = document.getElementById('heroTitle');
+
+  const frames = [];
+  let loadedCount = 0;
+  let currentFrame = -1;
+  let isReady = false;
+
+  // Preload all frames
+  function preloadFrames() {
+    for (let i = 0; i < CONFIG.totalFrames; i++) {
+      const img = new Image();
+      const num = String(i).padStart(CONFIG.framePadding, '0');
+      img.src = `${CONFIG.framePrefix}${num}${CONFIG.frameExtension}`;
+
+      img.onload = () => {
+        loadedCount++;
+        const pct = Math.round((loadedCount / CONFIG.totalFrames) * 100);
+        loaderFill.style.width = pct + '%';
+        loaderText.textContent = pct + '%';
+
+        // Set canvas size from first frame
+        if (loadedCount === 1) {
+          canvas.width = img.naturalWidth;
+          canvas.height = img.naturalHeight;
+          drawFrame(0);
+        }
+
+        if (loadedCount === CONFIG.totalFrames) {
+          isReady = true;
+          loader.style.display = 'none';
+        }
+      };
+
+      img.onerror = () => {
+        loadedCount++;
+        console.warn(`Failed to load frame ${i}`);
+      };
+
+      frames.push(img);
+    }
+  }
+
+  function drawFrame(index) {
+    if (index === currentFrame) return;
+    if (!frames[index] || !frames[index].complete) return;
+
+    currentFrame = index;
+    ctx.drawImage(frames[index], 0, 0, canvas.width, canvas.height);
+  }
+
+  // Scroll handler
+  function onScroll() {
+    if (!isReady) return;
+
+    const scrollTop = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const scrollFraction = Math.min(scrollTop / maxScroll, 1) * CONFIG.scrollMultiplier;
+    const frameIndex = Math.min(
+      Math.floor(scrollFraction * CONFIG.totalFrames),
+      CONFIG.totalFrames - 1
+    );
+
+    drawFrame(frameIndex);
+
+    // Title visibility
+    if (scrollFraction >= CONFIG.showTitleAtPercent) {
+      heroTitle.classList.add('visible');
+    } else {
+      heroTitle.classList.remove('visible');
+    }
+  }
+
+  // Use requestAnimationFrame for smooth performance
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  preloadFrames();
+  drawFrame(0);
+})();
+</script>
+</body>
+</html>

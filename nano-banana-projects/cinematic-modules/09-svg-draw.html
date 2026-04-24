@@ -1,0 +1,153 @@
+<!--
+  MODULE 09: SVG Draw Animation
+  SVG paths that draw themselves on scroll.
+  Perfect for logos, icons, decorative elements, flower/organic shapes.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG Draw Animation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a0a; min-height: 300vh; }
+
+  .draw-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .svg-draw path,
+  .svg-draw circle,
+  .svg-draw line,
+  .svg-draw polyline,
+  .svg-draw polygon,
+  .svg-draw rect {
+    stroke-dasharray: var(--path-length, 1000);
+    stroke-dashoffset: var(--path-length, 1000);
+    transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+    fill: none;
+  }
+
+  .svg-draw.drawn path,
+  .svg-draw.drawn circle,
+  .svg-draw.drawn line,
+  .svg-draw.drawn polyline,
+  .svg-draw.drawn polygon,
+  .svg-draw.drawn rect {
+    stroke-dashoffset: 0;
+  }
+
+  /* After draw, optionally fill */
+  .svg-draw.fill-after.drawn path {
+    fill: rgba(99, 102, 241, 0.1);
+    transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1), fill 0.5s ease 1.8s;
+  }
+
+  .label {
+    font-family: system-ui;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+</style>
+</head>
+<body>
+
+<div class="draw-section" style="height:40vh"></div>
+
+<div class="draw-section">
+  <!-- Shield icon (protection/insurance) -->
+  <div>
+    <div class="label">Shield</div>
+    <svg class="svg-draw" data-draw width="200" height="240" viewBox="0 0 200 240">
+      <path d="M100 10 L180 50 L180 130 Q180 200 100 230 Q20 200 20 130 L20 50 Z"
+            stroke="#6366f1" stroke-width="2" style="--path-length:700"/>
+      <path d="M70 120 L90 140 L135 95"
+            stroke="#86efac" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="--path-length:120"/>
+    </svg>
+  </div>
+
+  <!-- Flower (organic/natural) -->
+  <div>
+    <div class="label">Flower</div>
+    <svg class="svg-draw fill-after" data-draw width="200" height="200" viewBox="0 0 200 200">
+      <path d="M100 100 Q100 60 70 40 Q40 20 50 60 Q60 100 100 100" stroke="#f472b6" stroke-width="1.5" style="--path-length:300"/>
+      <path d="M100 100 Q140 100 160 70 Q180 40 140 50 Q100 60 100 100" stroke="#f472b6" stroke-width="1.5" style="--path-length:300"/>
+      <path d="M100 100 Q100 140 130 160 Q160 180 150 140 Q140 100 100 100" stroke="#f472b6" stroke-width="1.5" style="--path-length:300"/>
+      <path d="M100 100 Q60 100 40 130 Q20 160 60 150 Q100 140 100 100" stroke="#f472b6" stroke-width="1.5" style="--path-length:300"/>
+      <path d="M100 100 Q120 70 150 50 Q170 70 140 90 Q110 110 100 100" stroke="#f472b6" stroke-width="1.5" style="--path-length:250"/>
+      <circle cx="100" cy="100" r="12" stroke="#fbbf24" stroke-width="2" style="--path-length:80"/>
+    </svg>
+  </div>
+
+  <!-- Abstract wave -->
+  <div>
+    <div class="label">Wave</div>
+    <svg class="svg-draw" data-draw width="300" height="100" viewBox="0 0 300 100">
+      <path d="M0 50 Q37.5 0 75 50 Q112.5 100 150 50 Q187.5 0 225 50 Q262.5 100 300 50"
+            stroke="#06b6d4" stroke-width="2" style="--path-length:500"/>
+      <path d="M0 50 Q37.5 20 75 50 Q112.5 80 150 50 Q187.5 20 225 50 Q262.5 80 300 50"
+            stroke="rgba(6,182,212,0.3)" stroke-width="1" style="--path-length:500"/>
+    </svg>
+  </div>
+</div>
+
+<div class="draw-section">
+  <!-- House/building icon -->
+  <div>
+    <div class="label">Architecture</div>
+    <svg class="svg-draw" data-draw width="200" height="200" viewBox="0 0 200 200">
+      <path d="M20 180 L20 80 L100 20 L180 80 L180 180 Z" stroke="white" stroke-width="1.5" style="--path-length:600"/>
+      <rect x="75" y="110" width="50" height="70" stroke="white" stroke-width="1.5" style="--path-length:240"/>
+      <rect x="40" y="90" width="30" height="30" stroke="rgba(255,255,255,0.4)" stroke-width="1" style="--path-length:120"/>
+      <rect x="130" y="90" width="30" height="30" stroke="rgba(255,255,255,0.4)" stroke-width="1" style="--path-length:120"/>
+    </svg>
+  </div>
+
+  <!-- Heartbeat/pulse -->
+  <div>
+    <div class="label">Pulse</div>
+    <svg class="svg-draw" data-draw width="300" height="100" viewBox="0 0 300 100">
+      <polyline points="0,50 60,50 80,20 100,80 120,30 140,70 160,50 300,50"
+                stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="--path-length:500"/>
+    </svg>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Calculate actual path lengths and set them
+  document.querySelectorAll('.svg-draw').forEach(svg => {
+    svg.querySelectorAll('path, circle, polyline, polygon, rect, line').forEach(el => {
+      try {
+        const length = el.getTotalLength ? el.getTotalLength() : 1000;
+        el.style.setProperty('--path-length', Math.ceil(length));
+      } catch(e) {}
+    });
+  });
+
+  // Intersection Observer to trigger draw
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('drawn');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('[data-draw]').forEach(el => observer.observe(el));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creastilo Social Landing Printer | v4.0 Official</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050505; color: white; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .neon-border { box-shadow: 0 0 20px rgba(197, 160, 89, 0.1); }
+        .console { font-family: 'Courier New', monospace; background: #000; color: #0f0; padding: 15px; border-radius: 8px; font-size: 0.85rem; height: 300px; overflow-y: auto; border: 1px solid #111; }
+        .spinner { animation: spin 1s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="p-8">
+    <div class="max-w-6xl mx-auto">
+        <header class="flex justify-between items-center mb-10">
+            <div>
+                <h1 class="text-4xl font-bold tracking-tight text-white">Creastilo Social Landing <span class="text-[#c5a059]">Printer</span></h1>
+                <p class="text-gray-500 mt-1 font-mono text-xs uppercase tracking-widest">v4.0 • Nano Banana Official Pipeline • Gemini 3.1 Pro</p>
+            </div>
+            <div id="roadmap-step" class="px-5 py-2 bg-[#c5a059]/10 rounded-full text-[10px] font-black tracking-[0.2em] text-[#c5a059] border border-[#c5a059]/30 uppercase">
+                Ready to Print
+            </div>
+        </header>
+
+        <div class="w-full bg-white/5 rounded-full h-2 mb-10 overflow-hidden">
+            <div id="progress-bar" class="bg-[#c5a059] h-full w-0 transition-all duration-500"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass p-6 rounded-3xl space-y-6 neon-border border-[#c5a059]/20">
+                    <h2 class="text-lg font-bold flex items-center gap-2">
+                        <span class="w-2 h-2 bg-[#c5a059] rounded-full animate-pulse"></span> Nueva Misión
+                    </h2>
+                    <div class="space-y-4">
+                        <input id="target-url" type="text" placeholder="URL de Instagram o Sitio Web" 
+                               class="w-full bg-black border border-white/5 p-4 rounded-xl focus:outline-none focus:border-[#c5a059] transition-all text-sm text-gray-300">
+                        <textarea id="pain-points" placeholder="Puntos de dolor (Pain points) del cliente..." rows="2"
+                               class="w-full bg-black border border-white/5 p-4 rounded-xl focus:outline-none focus:border-[#c5a059] transition-all text-sm text-gray-300"></textarea>
+                        <textarea id="project-vision" placeholder="Visión y objetivos del proyecto..." rows="2"
+                               class="w-full bg-black border border-white/5 p-4 rounded-xl focus:outline-none focus:border-[#c5a059] transition-all text-sm text-gray-300"></textarea>
+                        <div class="p-4 border border-white/5 border-dashed rounded-xl bg-white/5">
+                            <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">Activos del Cliente (PDF, PNG, SVG)</label>
+                            <input id="client-assets" type="file" multiple accept=".pdf,.png,.jpg,.svg,.mp4" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-[#c5a059]/10 file:text-[#c5a059] hover:file:bg-[#c5a059]/20 transition-all"/>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <button onclick="startMission('web')" id="btn-mission-web" 
+                                    class="bg-[#c5a059] text-black font-black p-4 rounded-xl hover:bg-white transition-all uppercase tracking-widest text-[9px] shadow-xl shadow-[#c5a059]/10">
+                                Analizar Web
+                            </button>
+                            <button onclick="startMission('social')" id="btn-mission-social" 
+                                    class="bg-blue-600/20 text-blue-400 font-black p-4 rounded-xl hover:bg-blue-600/30 transition-all border border-blue-600/30 uppercase tracking-widest text-[9px]">
+                                Analizar Social
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tiers-box" class="glass p-6 rounded-3xl space-y-4 hidden border-[#c5a059]/20">
+                    <h3 class="text-[#c5a059] font-bold text-[10px] uppercase tracking-widest">Generador de Oferta (Sales Tool)</h3>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button onclick="print('basic')" class="w-full text-left p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 group">
+                            <div class="text-[10px] font-black uppercase text-gray-400 group-hover:text-white">Nivel 1: Básica</div>
+                            <div class="text-[8px] text-gray-500">Express & Conversión (Segura)</div>
+                        </button>
+                        <button onclick="print('pro')" class="w-full text-left p-3 rounded-xl bg-blue-500/5 hover:bg-blue-500/10 transition-all border border-blue-500/10 group">
+                            <div class="text-[10px] font-black uppercase text-blue-400 group-hover:text-white">Nivel 2: Pro</div>
+                            <div class="text-[8px] text-gray-500">Interactive 3D Style (Boutique)</div>
+                        </button>
+                        <button onclick="animateAndPrint()" class="w-full text-left p-3 rounded-xl bg-[#c5a059]/5 hover:bg-[#c5a059]/10 transition-all border border-[#c5a059]/20 group">
+                            <div class="text-[10px] font-black uppercase text-[#c5a059] group-hover:text-white">Nivel 3: Premium</div>
+                            <div class="text-[8px] text-gray-500">Nano Banana + Kling (Cinematic)</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="glass p-6 rounded-3xl space-y-4">
+                    <h3 class="text-gray-500 font-bold text-[10px] uppercase tracking-widest">Telemetría de Ingeniería</h3>
+                    <div id="console-logs" class="console">
+                        > Pipeline Oficial Nano Banana cargado.
+                        > Conectado a Surfagent & Gemini 3.1 Pro.
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 space-y-6">
+                <div class="glass rounded-3xl overflow-hidden h-[620px] relative border-white/5 bg-black">
+                    <div class="bg-white/5 px-6 py-3 flex items-center justify-between">
+                        <div class="flex gap-1.5 text-gray-600 italic text-[10px]">PREVIEW_V4_OFFICIAL</div>
+                        <span class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Live Viewport</span>
+                    </div>
+                    <iframe id="preview-frame" src="about:blank" class="w-full h-full bg-black"></iframe>
+                    <div id="generating-overlay" class="absolute inset-0 bg-black/95 flex flex-col items-center justify-center hidden transition-all">
+                        <div class="relative mb-6">
+                            <div class="w-16 h-16 border-2 border-[#c5a059]/10 rounded-full"></div>
+                            <div class="w-16 h-16 border-2 border-t-[#c5a059] rounded-full absolute top-0 spinner"></div>
+                        </div>
+                        <p id="overlay-text" class="text-[10px] font-black tracking-[0.5em] text-[#c5a059] uppercase animate-pulse">Sintetizando Experiencia...</p>
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3">
+                    <button onclick="downloadZip()" class="px-8 py-3 bg-white/5 rounded-xl hover:bg-white/10 text-[10px] font-black uppercase tracking-widest transition-all border border-white/10">
+                        Exportar ZIP
+                    </button>
+                    <button class="px-8 py-3 bg-[#c5a059] text-black rounded-xl text-[10px] font-black uppercase tracking-widest shadow-xl shadow-[#c5a059]/20 hover:bg-white transition-all">
+                        Cloud Deploy
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const logs = document.getElementById('console-logs');
+        function addLog(msg, color = 'text-green-500') {
+            const time = new Date().toLocaleTimeString();
+            logs.innerHTML += `<div class="${color} font-mono"><span class="text-gray-700">[${time}]</span> ${msg}</div>`;
+            logs.scrollTop = logs.scrollHeight;
+        }
+
+        async function startMission(type) {
+            const url = document.getElementById('target-url').value;
+            if(!url) return alert("Ingresa una URL.");
+            
+            const painPoints = document.getElementById('pain-points').value;
+            const projectVision = document.getElementById('project-vision').value;
+            const files = document.getElementById('client-assets').files;
+
+            const btn = document.getElementById(type === 'social' ? 'btn-mission-social' : 'btn-mission-web');
+            const progressBar = document.getElementById('progress-bar');
+            
+            btn.disabled = true;
+            document.getElementById('generating-overlay').classList.remove('hidden');
+
+            const statusInterval = setInterval(async () => {
+                try {
+                    const res = await fetch('/api/status');
+                    const status = await res.json();
+                    progressBar.style.width = status.progress + '%';
+                    if(status.step) {
+                       document.getElementById('roadmap-step').innerText = status.step;
+                       addLog(`> ${status.step}`, 'text-gray-500');
+                    }
+                } catch(e) {}
+            }, 1000);
+
+            try {
+                const formData = new FormData();
+                formData.append('url', url);
+                formData.append('painPoints', painPoints);
+                formData.append('projectVision', projectVision);
+                formData.append('analysisType', type);
+                for(let i=0; i<files.length; i++) formData.append('assets', files[i]);
+
+                const r1 = await fetch('/api/analyze', { method: 'POST', body: formData });
+                
+                if(!r1.ok) throw new Error(await r1.text());
+                
+                const data = await r1.json();
+                
+                if(data.visualIdentity) {
+                    if (data.visualIdentity.logo) addLog(`✓ Logo (${data.visualIdentity.logo.type.toUpperCase()}) detectado.`, "text-[#c5a059]");
+                    addLog("✓ ADN de marca sintetizado.", "text-purple-400");
+                    
+                    if (data.visualIdentity.conversionMap) {
+                        addLog(`✓ Conversion Audit: ${data.visualIdentity.conversionMap.length} CTAs mapeados.`, "text-yellow-400");
+                        data.visualIdentity.conversionMap.forEach(cta => {
+                           addLog(`> Botón Detectado: "${cta.text}"`, "text-gray-500 text-[10px] ml-4");
+                        });
+                    }
+                    
+                    if (data.visualIdentity.reconScreenshot) {
+                        addLog(`✓ Evidencia Visual: Captura tomada.`, "text-green-500 font-bold");
+                        const img = document.createElement('img');
+                        img.src = data.visualIdentity.reconScreenshot + '?t=' + Date.now();
+                        img.className = "mt-2 rounded-lg border border-white/10 w-full";
+                        logs.appendChild(img);
+                        logs.scrollTop = logs.scrollHeight;
+                    }
+                }
+
+                document.getElementById('tiers-box').classList.remove('hidden');
+                document.getElementById('preview-frame').src = data.card + '?t=' + Date.now();
+                progressBar.style.width = '100%';
+
+            } catch (e) {
+                addLog("✗ CRITICAL FAILURE: " + e.message, "text-red-500");
+            } finally {
+                clearInterval(statusInterval);
+                document.getElementById('generating-overlay').classList.add('hidden');
+                btn.disabled = false;
+            }
+        }
+
+        async function print(tier) {
+            addLog(`Generando versión ${tier.toUpperCase()}...`, "text-yellow-500");
+            let endpoint = '/api/print-landing';
+            let options = {
+                method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({tier})
+            };
+
+            if (tier === 'premium') {
+                endpoint = '/api/build';
+                options = { method: 'POST' };
+                addLog("Ejecutando orquestador avanzado con Gemini 2.5 Pro...", "text-purple-400");
+            }
+
+            const r = await fetch(endpoint, options);
+            const data = await r.json();
+            if(data.success) {
+                addLog(`✓ Landing ${tier === 'premium' ? 'Generativa (Premium)' : data.tier} lista.`);
+                document.getElementById('preview-frame').src = 'index.html?t=' + Date.now();
+            }
+        }
+
+        async function animateAndPrint() {
+            document.getElementById('generating-overlay').classList.remove('hidden');
+            try {
+                addLog("Generando Imagen Base y Animando con Kling 3.0...", "text-purple-400");
+                const r2 = await fetch('/api/generate-visuals', { method: 'POST' });
+                if(!r2.ok) throw new Error("Fallo en la generación visual.");
+                addLog("✓ Video cinematográfico sintetizado.");
+                
+                await print('premium');
+            } catch (e) {
+                addLog("✗ Error en Premium: " + e.message, "text-red-500");
+            } finally {
+                document.getElementById('generating-overlay').classList.add('hidden');
+            }
+        }
+
+        function downloadZip() {
+            window.location.href = '/api/export';
+        }
+    </script>
+</body>
+</html>',filePath:'C:\Users\carlo\OneDrive\Escritorio\render creastilo\public\dashboard.html')

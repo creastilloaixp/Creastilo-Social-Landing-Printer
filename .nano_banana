@@ -1,0 +1,21 @@
+{
+  "engine": "imagen-4.0-fast-generate-001",
+  "mission": "Diseñar y desarrollar la experiencia inmersiva 'Ventanas al Futuro', proyectando 12 años de solidez corporativa y exclusividad inmobiliaria en México, mediante una interfaz minimalista de alta conversión, estética premium y microinteracciones fluidas que guíen al usuario hacia la asesoría.",
+  "strategy": {
+    "concept": "Ventanas al Futuro: Una experiencia inmersiva que combina la solidez de 12 años de trayectoria con la sofisticación de invertir en los destinos más exclusivos de México (Tulum, Playa del Carmen, Mazatlán, Culiacán).",
+    "color_strategy": {
+      "base": ["Azul medianoche", "Gris carbón"],
+      "accents": ["Tonos arena", "Dorado cálido"],
+      "psychology": "Transmitir confianza, seguridad y elegancia corporativa, evocando el lujo costero y el estilo de vida premium."
+    },
+    "animation_roadmap": {
+      "macro": "Transiciones de scroll tipo 'parallax' y barridos de cámara lentos (panning) en imágenes de fondo para dar escala arquitectónica.",
+      "micro": "Efecto de 'slow zoom-in' en las tarjetas de propiedades al hacer hover (emulando tomas de dron), y apariciones en 'fade-up' fluidas para los textos descriptivos."
+    },
+    "ux_focus": {
+      "goal": "Reducir la fricción cognitiva mediante un diseño limpio y minimalista.",
+      "attention_flow": "Visualización de propiedades -> Trayectoria de la empresa -> Embudo de conversión directo.",
+      "primary_cta": "Agenda tu asesoría"
+    }
+  }
+}
