@@ -196,7 +196,7 @@ app.post('/api/analyze', upload.array('assets', 10), async (req, res) => {
         fs.writeFileSync('current_strategy.json', JSON.stringify(strategyContext, null, 2));
 
         if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-        await execPromise(`node nano-banana-projects/brand-analyzer.mjs "${url}" "${OUTPUT_DIR}"`);
+        await execPromise(`node nano-banana-projects/brand-analyzer-v2.mjs "${url}" "${OUTPUT_DIR}"`);
         
         const cardSource = path.join(OUTPUT_DIR, 'brand-card.html');
         if (fs.existsSync(cardSource)) fs.copyFileSync(cardSource, 'public/brand-card.html');
