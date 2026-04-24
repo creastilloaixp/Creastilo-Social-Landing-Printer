@@ -15,7 +15,6 @@ const log = {
   step: (msg) => console.log(`\n→ ${msg}`)
 };
 
-// Simplified generateBrandCard for stability
 function generateBrandCard(brand, strategy) {
     const devManifest = JSON.stringify({
         colors: brand.colors,
@@ -64,16 +63,14 @@ function generateBrandCard(brand, strategy) {
 </html>`;
 }
 
-// Minimal main
 async function main() {
     const [,, websiteUrl, outputDir] = process.argv;
     const outDir = outputDir || path.join(__dirname, 'output');
     if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
     
-    // Mock brand for testing structure
     const brand = { companyName: "Test", tagline: "Test", colors: {}, typography: {}, services: [], brandVision: "", brandDescription: "", suggestedHeroScenes: [], meta: {} };
     fs.writeFileSync(path.join(outDir, 'brand-card.html'), generateBrandCard(brand, {}));
     log.success('Brand card saved.');
 }
 
-main();,filePath: 'C:\Users\carlo\OneDrive\Escritorio\render creastilo\nano-banana-projects\brand-analyzer.mjs')
+main();
