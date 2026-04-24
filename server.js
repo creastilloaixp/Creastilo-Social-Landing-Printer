@@ -40,6 +40,11 @@ const upload = multer({ storage });
 app.use(express.json());
 app.use(express.static('public'));
 
+// Redirigir la raíz al dashboard
+app.get('/', (req, res) => {
+    res.sendFile(path.join(process.cwd(), 'public', 'dashboard.html'));
+});
+
 let jobStatus = { step: 'Idle', progress: 0 };
 app.get('/api/status', (req, res) => res.json(jobStatus));
 
